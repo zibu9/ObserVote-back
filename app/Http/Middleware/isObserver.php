@@ -15,6 +15,10 @@ class isObserver
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (auth()->check() && auth()->user()->role->role === 'Observer')
+        {
+            return $next($request);
+        }
+        return abort(403);
     }
 }
