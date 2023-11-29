@@ -8,7 +8,7 @@
         <a href=""><b>Obser</b>V<b>ote</b></a>
     </div>
 
-    <div class="card rounded-md">
+    <div class="card">
       <div class="card-body register-card-body">
         <p class="login-box-msg">Register a new membership</p>
 
