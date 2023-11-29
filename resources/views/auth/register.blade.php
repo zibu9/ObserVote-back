@@ -8,7 +8,7 @@
         <a href=""><b>Obser</b>V<b>ote</b></a>
     </div>
 
-    <div class="card">
+    <div class="card rounded-md">
       <div class="card-body register-card-body">
         <p class="login-box-msg">Register a new membership</p>
 
@@ -30,6 +30,17 @@
           @enderror
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email" name="email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          @error('phone')
+          <div class="text-danger">{{ $message }}</div>
+          @enderror
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="PhoneNumber" name="phone">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
