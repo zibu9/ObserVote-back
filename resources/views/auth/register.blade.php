@@ -5,8 +5,8 @@
 @section('main')
 <div class="register-box">
     <div class="login-logo">
-        <a href=""><b>G</b>&<b>HRM</b></a>
-      </div>
+        <a href=""><b>Obser</b>V<b>ote</b></a>
+    </div>
 
     <div class="card">
       <div class="card-body register-card-body">
@@ -58,6 +58,7 @@
           </div>
           <div class="row">
             <div class="col-8">
+                <a href="{{ route('login') }}" class="text-center">I already have an account</a>
             </div>
             <!-- /.col -->
             <div class="col-4">
@@ -66,8 +67,6 @@
             <!-- /.col -->
           </div>
         </form>
-
-        <a href="{{ route('login') }}" class="text-center">I already have an account</a>
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->
