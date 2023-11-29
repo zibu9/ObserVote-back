@@ -33,7 +33,7 @@ class Handler extends ExceptionHandler
         $this->renderable(function (\Illuminate\Auth\AuthenticationException $e, $request) {
             if ($request->is('api/*')) {
                 if (Auth::check()){
-                    if(!(Auth::user()->role == 1)){
+                    if(!(Auth::user())){
                         return response()->json([
                             'message' => 'Unauthorized'
                         ], 401);
