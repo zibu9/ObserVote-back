@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Route::get('/register', function () {
     abort(404);
-});
+})->name('register');
 
 Route::post('/register', function () {
     abort(404);
-});
+})->name('register');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
