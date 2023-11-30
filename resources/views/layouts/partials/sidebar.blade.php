@@ -40,7 +40,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('candidat.index') }}" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>Liste
                     <span class="badge badge-success right">All</span>

@@ -31,6 +31,11 @@ class Candidat extends Model
         return $this->hasMany(User::class);
     }
 
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
     protected static function booted()
     {
         static::created(function ($banque) {
