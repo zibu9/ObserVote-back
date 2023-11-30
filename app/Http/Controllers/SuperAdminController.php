@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Models\Candidat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class SuperAdminController extends Controller
@@ -23,9 +24,14 @@ class SuperAdminController extends Controller
 
     public function createCandidat()
     {
-        $types = Type::all();
+        if (Gate::allows('superadmin-access')) {
+            $types = Type::all();
 
-        return view('superadmin.candidat', compact('types'));
+            return view('superadmin.candidat', compact('types'));
+        } else {
+            abort(403);
+        }
+
     }
 
     public function storeCandidat(Request $request)
