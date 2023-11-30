@@ -56,15 +56,15 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Regroupement</label>
-                            <input value="{{ $candidat->name }}" name="regroupement" type="text" class="form-control" placeholder="Enter le regroupement politique">
+                            <input value="{{ $candidat->regroupement }}" name="regroupement" type="text" class="form-control" placeholder="Enter le regroupement politique">
                         </div>
                         <div class="form-group">
                             <label for="name">Parti Politique</label>
-                            <input value="{{ $candidat->name }}" name="parti" type="text" class="form-control" placeholder="Enter le parti politique">
+                            <input value="{{ $candidat->parti }}" name="parti" type="text" class="form-control" placeholder="Enter le parti politique">
                         </div>
                         <div class="form-group">
                             <label for="name">Candidat</label>
-                            <input value="{{ $candidat->name }}" name="candidat" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
+                            <input value="{{ $candidat->candidat }}" name="candidat" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
                         </div>
                         <div class="form-group">
                             <label>Genre</label>
@@ -76,23 +76,11 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Province</label>
-                            <input value="{{ $candidat->name }}" name="province" type="text" class="form-control" placeholder="Enter la province">
+                            <input value="{{ $candidat->province }}" name="province" type="text" class="form-control" placeholder="Enter la province">
                         </div>
                         <div class="form-group">
                             <label for="name">Circonscription</label>
-                            <input value="{{ $candidat->name }}" name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email</label>
-                          <input value="{{ $candidat->name }}" name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Télephone</label>
-                            <input value="{{ $candidat->name }}" name="phone" type="text" class="form-control" placeholder="Ex : 82XXXXXXX">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input value="{{ $candidat->name }}" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <input value="{{ $candidat->circonscription }}" name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
                         </div>
                       </div>
                       <!-- /.card-body -->
