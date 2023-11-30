@@ -76,11 +76,11 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Province</label>
-                            <input name="province" type="text" class="form-control" placeholder="Enter le parti politique">
+                            <input name="province" type="text" class="form-control" placeholder="Enter la province">
                         </div>
                         <div class="form-group">
                             <label for="name">Circonscription</label>
-                            <input name="circonscription" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
+                            <input name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>

@@ -87,11 +87,6 @@
                             <span class="badge badge-{{ ($candidat->type->id == 1) ? 'success' : 'info' }}">{{ $candidat->type->name }}</span>
                         </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-folder">
-                                </i>
-                                View
-                            </a>
                             <a class="btn btn-info btn-sm" href="#">
                                 <i class="fas fa-pencil-alt">
                                 </i>
@@ -100,7 +95,7 @@
                             <a class="btn btn-danger btn-sm" href="#">
                                 <i class="fas fa-trash">
                                 </i>
-                                Delete
+                                Bloquer
                             </a>
                         </td>
                     </tr>
