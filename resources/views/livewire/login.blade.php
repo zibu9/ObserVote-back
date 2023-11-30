@@ -1,6 +1,5 @@
 <div>
         <div class="form-group">
-            <label>Login with:</label>
             <select class="form-control" wire:model.live="loginType">
                 <option value="email">Email</option>
                 <option value="phone">Phone Number</option>
