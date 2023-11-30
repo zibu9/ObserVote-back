@@ -14,40 +14,42 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">{{ auth()->user()->role->role }}</a>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item has-treeview">
+        @if ((auth()->user()->role->id == 1))
+            <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fab fa-wpforms"></i>
-              <p>
-                Formulaire
+                <i class="nav-icon fa fa-users"></i>
+                <p>
+                Candidats
                 <i class="right fas fa-angle-left"></i>
-              </p>
+                </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+                <li class="nav-item">
                 <a href="" class="nav-link">
-                  <i class="fa fa-plus nav-icon"></i>
-                  <p>Nouveau
+                    <i class="fa fa-plus nav-icon"></i>
+                    <p>Nouveau
                     <span class="badge badge-success right">New</span>
-                  </p>
+                    </p>
                 </a>
-              </li>
-              <li class="nav-item">
+                </li>
+                <li class="nav-item">
                 <a href="" class="nav-link">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>Liste
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>Liste
                     <span class="badge badge-success right">All</span>
-                  </p>
+                    </p>
                 </a>
-              </li>
+                </li>
             </ul>
-          </li>
+            </li>
+        @endif
 
           <li class="nav-header">Divers</li>
           <li class="nav-item has-treeview">

@@ -1,3 +1,4 @@
+@auth
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,3 +77,8 @@
     @yield('script')
 </body>
 </html>
+@else
+<script>
+    window.location.href = "{{ route('login') }}";
+</script>
+@endauth
