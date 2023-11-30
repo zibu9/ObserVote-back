@@ -10,4 +10,6 @@ class Login extends Component
     {
         return view('livewire.login');
     }
+
+
 }

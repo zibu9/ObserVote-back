@@ -18,6 +18,7 @@
             @error('email')
             <div class="text-danger">{{ $message }}</div>
             @enderror
+            <a href="">Login With Phone</a>
           <div class="input-group mb-3">
             <input type="text" name="email" class="form-control" placeholder="Email"  value="{{ old('email') }}">
             <div class="input-group-append">
