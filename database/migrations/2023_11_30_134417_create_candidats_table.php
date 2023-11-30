@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('candidats', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('regroupement');
+            $table->string('parti');
+            $table->string('candidat');
+            $table->string('sexe');
+            $table->string('province');
+            $table->string('circonscription');
             $table->timestamps();
         });
     }
