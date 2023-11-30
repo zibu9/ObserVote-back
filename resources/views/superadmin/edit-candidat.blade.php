@@ -13,7 +13,7 @@
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Acceuil</a></li>
                     <li class="breadcrumb-item"><a href="">Candidats</a></li>
-                    <li class="breadcrumb-item active">Nouveau</li>
+                    <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -52,19 +52,19 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Noms</label>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Enter nom complet">
+                            <input value="{{ $candidat->name }}" name="name" type="text" class="form-control" id="name" placeholder="Enter nom complet">
                         </div>
                         <div class="form-group">
                             <label for="name">Regroupement</label>
-                            <input name="regroupement" type="text" class="form-control" placeholder="Enter le regroupement politique">
+                            <input value="{{ $candidat->name }}" name="regroupement" type="text" class="form-control" placeholder="Enter le regroupement politique">
                         </div>
                         <div class="form-group">
                             <label for="name">Parti Politique</label>
-                            <input name="parti" type="text" class="form-control" placeholder="Enter le parti politique">
+                            <input value="{{ $candidat->name }}" name="parti" type="text" class="form-control" placeholder="Enter le parti politique">
                         </div>
                         <div class="form-group">
                             <label for="name">Candidat</label>
-                            <input name="candidat" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
+                            <input value="{{ $candidat->name }}" name="candidat" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
                         </div>
                         <div class="form-group">
                             <label>Genre</label>
@@ -76,23 +76,23 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Province</label>
-                            <input name="province" type="text" class="form-control" placeholder="Enter la province">
+                            <input value="{{ $candidat->name }}" name="province" type="text" class="form-control" placeholder="Enter la province">
                         </div>
                         <div class="form-group">
                             <label for="name">Circonscription</label>
-                            <input name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
+                            <input value="{{ $candidat->name }}" name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
-                          <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                          <input value="{{ $candidat->name }}" name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="name">Télephone</label>
-                            <input name="phone" type="text" class="form-control" placeholder="Ex : 82XXXXXXX">
+                            <input value="{{ $candidat->name }}" name="phone" type="text" class="form-control" placeholder="Ex : 82XXXXXXX">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Password</label>
-                          <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                          <input value="{{ $candidat->name }}" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                         </div>
                       </div>
                       <!-- /.card-body -->
