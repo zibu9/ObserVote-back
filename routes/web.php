@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::middleware(['superadmin'])->group(function () {
         Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
-        Route::post('/candidats', [SuperadminController::class, 'storeCandidat'])->name('candidats.store');
+        Route::post('/candidats', [SuperadminController::class, 'storeCandidat'])->name('candidat.store');
     });
 });
 

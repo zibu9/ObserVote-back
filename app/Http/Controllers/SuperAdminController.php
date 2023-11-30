@@ -20,7 +20,6 @@ class SuperAdminController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'regroupement' => 'required|string',
             'parti' => 'required|string',
             'candidat' => 'required|string',
             'sexe' => 'required|string',

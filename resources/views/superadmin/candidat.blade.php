@@ -39,7 +39,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" action="{{ route('candidat.store') }}" method="POST">
                       <div class="card-body">
                         <div class="form-group">
                             <label for="name">Noms</label>
