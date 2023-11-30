@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('candidats', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('regroupement');
-            $table->string('parti');
-            $table->string('candidat');
+            $table->string('regroupement')->nullable();
+            $table->string('parti')->nullable();
+            $table->string('candidat')->nullable();
             $table->string('sexe');
-            $table->string('province');
-            $table->string('circonscription');
+            $table->string('province')->nullable();
+            $table->string('circonscription')->nullable();
             $table->timestamps();
         });
     }

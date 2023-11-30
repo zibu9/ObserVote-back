@@ -23,8 +23,6 @@ class SuperAdminController extends Controller
             'parti' => 'required|string',
             'candidat' => 'required|string',
             'sexe' => 'required|string',
-            'province' => 'required|string',
-            'circonscription' => 'required|string',
             'email' => 'required|email|unique:candidats,email',
             'phone' => 'required|string|unique:candidats,phone',
             'password' => 'required|string|min:8',
@@ -41,13 +39,14 @@ class SuperAdminController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'password' => $password,
+            'type_id' => (int) $request->input('type_id'),
         ]);
 
         $candidat->update([
             'password' => Hash::make($password),
         ]);
 
-        return redirect()->route('candidats.index')->with('success', 'Candidat créé avec succès');
+        return redirect()->route('candidat.index')->with('success', 'Candidat créé avec succès');
     }
 
 }

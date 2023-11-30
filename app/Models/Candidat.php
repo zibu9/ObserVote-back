@@ -21,6 +21,7 @@ class Candidat extends Model
         'email',
         'phone',
         'password',
+        'type_id',
 
     ];
 

@@ -40,7 +40,16 @@
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form role="form" action="{{ route('candidat.store') }}" method="POST">
+                        @csrf
                       <div class="card-body">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select name="type_id" class="form-control">
+                                @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="name">Noms</label>
                             <input name="name" type="text" class="form-control" id="name" placeholder="Enter nom complet">
@@ -60,9 +69,9 @@
                         <div class="form-group">
                             <label>Genre</label>
                             <select name="sexe" class="form-control">
-                              <option>Masculin</option>
-                              <option>Feminin</option>
-                              <option>Autre</option>
+                              <option value="Masculin">Masculin</option>
+                              <option value="Feminin">Feminin</option>
+                              <option value="Autre">Autre</option>
                             </select>
                         </div>
                         <div class="form-group">
