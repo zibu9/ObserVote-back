@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
         return view('home');
     });
-    Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
+    Route::middleware(['superadmin'])->group(function () {
+        Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
+    });
 });
 
