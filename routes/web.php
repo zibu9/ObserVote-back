@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::middleware(['superadmin'])->group(function () {
         Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
         Route::get('listes-des-candidats', [SuperAdminController::class, 'index'])->name('candidat.index');
+        Route::get('editer-candidat/{id}', [SuperAdminController::class, 'edit'])->name('candidat.edit');
         Route::post('/candidats', [SuperadminController::class, 'storeCandidat'])->name('candidat.store');
     });
 });

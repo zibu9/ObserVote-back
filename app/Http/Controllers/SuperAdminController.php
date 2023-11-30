@@ -13,6 +13,12 @@ class SuperAdminController extends Controller
         $candidats = Candidat::all();
         return view('superadmin.index', compact('candidats'));
     }
+
+    public function edit(Candidat $candidat)
+    {
+        return view('superadmin.edit-candidat', compact('candidat'));
+    }
+
     public function createCandidat()
     {
         $types = Type::all();
