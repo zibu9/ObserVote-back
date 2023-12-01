@@ -31,6 +31,11 @@ class Candidat extends Model
         return $this->hasMany(User::class);
     }
 
+    public function observers()
+    {
+        return $this->hasMany(Observer::class);
+    }
+
     public function type()
     {
         return $this->belongsTo(Type::class);
@@ -38,8 +43,8 @@ class Candidat extends Model
 
     protected static function booted()
     {
-        static::created(function ($banque) {
-            $banque->createUser();
+        static::created(function ($candidat) {
+            $candidat->createUser();
         });
     }
 
