@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Gate;
 
 class CandidatController extends Controller
 {
-    public function createCandidat()
+    public function createObserver()
     {
         if (Gate::allows('admin-access')) {
 

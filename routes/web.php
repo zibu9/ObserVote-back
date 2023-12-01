@@ -39,8 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::middleware(['admin'])->group(function () {
         Route::get('editer-observer/{id}', [CandidatController::class, 'edit'])->name('observer.edit');
-        Route::post('/observer', [CandidatController::class, 'storeobserver'])->name('observer.store');
-        Route::get('observer/create', [CandidatController::class, 'createobserver'])->name('observer.create');
+        Route::post('/observer', [CandidatController::class, 'storeObserver'])->name('observer.store');
+        Route::get('observer/create', [CandidatController::class, 'createObserver'])->name('observer.create');
         Route::get('listes-des-observers', [CandidatController::class, 'index'])->name('observer.index');
     });
 });
