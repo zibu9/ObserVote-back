@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('observers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('sexe');
+            $table->string('email')->unique()->nullable();
+            $table->string('phone')->unique()->nullable();
+            $table->string('password');
+            $table->foreignId('candidat_id')->constrained()->onUpdate('cascade');
             $table->timestamps();
         });
     }
