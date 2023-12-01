@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SuperAdminController extends Controller
 {
+
     public function index(){
         $candidats = Candidat::all();
         return view('superadmin.index', compact('candidats'));

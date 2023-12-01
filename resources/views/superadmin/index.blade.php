@@ -22,7 +22,11 @@
 
     <!-- Main content -->
     <section class="content">
-
+        @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
