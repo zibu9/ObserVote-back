@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\SuperAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,15 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::middleware(['superadmin'])->group(function () {
         Route::get('editer-candidat/{id}', [SuperAdminController::class, 'edit'])->name('candidat.edit');
-        Route::post('/candidats', [SuperadminController::class, 'storeCandidat'])->name('candidat.store');
+        Route::post('/candidat', [SuperadminController::class, 'storeCandidat'])->name('candidat.store');
         Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
         Route::get('listes-des-candidats', [SuperAdminController::class, 'index'])->name('candidat.index');
+    });
+    Route::middleware(['admin'])->group(function () {
+        Route::get('editer-observer/{id}', [CandidatController::class, 'edit'])->name('observer.edit');
+        Route::post('/observer', [CandidatController::class, 'storeobserver'])->name('observer.store');
+        Route::get('observer/create', [CandidatController::class, 'createobserver'])->name('observer.create');
+        Route::get('listes-des-observers', [CandidatController::class, 'index'])->name('observer.index');
     });
 });
 

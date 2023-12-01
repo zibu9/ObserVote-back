@@ -26,6 +26,36 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
+                Temoins
+                <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="{{ route('observer.create') }}" class="nav-link">
+                    <i class="fa fa-plus nav-icon"></i>
+                    <p>Nouveau
+                    <span class="badge badge-success right">New</span>
+                    </p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="{{ route('observer.index') }}" class="nav-link">
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>Liste
+                    <span class="badge badge-success right">All</span>
+                    </p>
+                </a>
+                </li>
+            </ul>
+            </li>
+        @endif
+
+                @if ((auth()->user()->role->id == 1))
+            <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>
                 Candidats
                 <i class="right fas fa-angle-left"></i>
                 </p>
@@ -51,8 +81,8 @@
             </li>
         @endif
 
-          <li class="nav-header">Divers</li>
-          {{-- <li class="nav-item has-treeview">
+         {{-- <li class="nav-header">Divers</li>
+           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
