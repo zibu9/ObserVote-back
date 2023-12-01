@@ -1,6 +1,6 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; @php
+    <strong> &copy; Template :  @php
         date('Y')
-    @endphp <a href="">SkyTech243</a>.</strong>
-    All rights reserved.
+    @endphp <a href="https://adminlte.io">AdminLTE.io</a></strong>
+    All rights reserved. Developed by <a href="https://skytech243.com">Skytech243</a>
   </footer>
