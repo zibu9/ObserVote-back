@@ -39,7 +39,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ route('candidat.store') }}" method="POST">
+                    <form role="form" action="{{ route('candidat.update', $candidat->id) }}" method="POST">
                         @csrf
                       <div class="card-body">
                         <div class="form-group">

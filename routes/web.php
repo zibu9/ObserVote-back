@@ -34,12 +34,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::middleware(['superadmin'])->group(function () {
         Route::get('editer-candidat/{id}', [SuperAdminController::class, 'edit'])->name('candidat.edit');
         Route::post('/candidat', [SuperadminController::class, 'storeCandidat'])->name('candidat.store');
+        Route::put('/observer/{id}', [SuperAdminController::class, 'updateCandidat'])->name('candidat.update');
         Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
         Route::get('listes-des-candidats', [SuperAdminController::class, 'index'])->name('candidat.index');
     });
     Route::middleware(['admin'])->group(function () {
         Route::get('editer-observer/{id}', [CandidatController::class, 'edit'])->name('observer.edit');
         Route::post('/observer', [CandidatController::class, 'storeObserver'])->name('observer.store');
+        Route::put('/observer/{id}', [CandidatController::class, 'updateObserver'])->name('observer.update');
         Route::get('observer/create', [CandidatController::class, 'createObserver'])->name('observer.create');
         Route::get('listes-des-observers', [CandidatController::class, 'index'])->name('observer.index');
     });
