@@ -35,36 +35,16 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Ajouter Candidat</h3>
+                      <h3 class="card-title">Ajouter Observateur</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ route('candidat.store') }}" method="POST">
+                    <form role="form" action="{{ route('observer.store') }}" method="POST">
                         @csrf
                       <div class="card-body">
                         <div class="form-group">
-                            <label>Type</label>
-                            <select name="type_id" class="form-control">
-                                @foreach ($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="name">Noms</label>
                             <input name="name" type="text" class="form-control" id="name" placeholder="Enter nom complet">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Regroupement</label>
-                            <input name="regroupement" type="text" class="form-control" placeholder="Enter le regroupement politique">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Parti Politique</label>
-                            <input name="parti" type="text" class="form-control" placeholder="Enter le parti politique">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Candidat</label>
-                            <input name="candidat" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
                         </div>
                         <div class="form-group">
                             <label>Genre</label>
@@ -73,14 +53,6 @@
                               <option value="Feminin">Feminin</option>
                               <option value="Autre">Autre</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Province</label>
-                            <input name="province" type="text" class="form-control" placeholder="Enter la province">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Circonscription</label>
-                            <input name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
