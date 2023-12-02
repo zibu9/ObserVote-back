@@ -19,11 +19,11 @@ class Observer extends Model
         'candidat_id',
     ];
 
-    /**
-     * Get the candidat that owns the Observer
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
     public function candidat()
     {
         return $this->belongsTo(Candidat::class);
