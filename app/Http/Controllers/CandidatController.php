@@ -57,4 +57,17 @@ class CandidatController extends Controller
         $observer = Observer::findOrFail($id);
         return view('admin.edit-observer', compact('observer'));
     }
+
+    public function updateObserver(Request $request, $id)
+    {
+        $observer = Observer::findOrFail($id);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:45',
+            'sexe' => 'required',
+        ]);
+
+        $observer->update($validatedData);
+
+        return redirect()->route('observer.index')->with('success', 'Temoins mis à jour avec succès !');
+    }
 }
