@@ -51,4 +51,10 @@ class CandidatController extends Controller
 
         return redirect()->route('observer.index')->with('success', 'Temoins créé avec succès');
     }
+
+    public function edit($id)
+    {
+        $observer = Observer::findOrFail($id);
+        return view('admin.edit-observer', compact('observer'));
+    }
 }

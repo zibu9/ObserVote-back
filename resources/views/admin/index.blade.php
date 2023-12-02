@@ -67,7 +67,7 @@
                           <td>{{ $observer->candidat->candidat }}</td>
                           <td><span class="tag tag-success">Approved</span></td>
                           <td class="">
-                                <a class="btn btn-info btn-sm" href="#">
+                                <a class="btn btn-info btn-sm" href="{{ route('observer.edit', $observer->id) }}">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
