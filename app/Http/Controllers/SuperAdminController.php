@@ -23,6 +23,12 @@ class SuperAdminController extends Controller
         return view('superadmin.edit-candidat', compact('candidat', 'types'));
     }
 
+    public function show($id)
+    {
+        $candidat = Candidat::findOrFail($id);
+        return view('superadmin.show', compact('candidat'));
+    }
+
     public function createCandidat()
     {
         if (Gate::allows('superadmin-access')) {

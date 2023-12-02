@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/observer/{id}', [SuperAdminController::class, 'updateCandidat'])->name('candidat.update');
         Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
         Route::get('listes-des-candidats', [SuperAdminController::class, 'index'])->name('candidat.index');
+        Route::get('candidat/{id}', [SuperAdminController::class, 'show'])->name('candidat.show');
     });
     Route::middleware(['admin'])->group(function () {
         Route::get('editer-observer/{id}', [CandidatController::class, 'edit'])->name('observer.edit');
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/observer/{id}', [CandidatController::class, 'updateObserver'])->name('observer.update');
         Route::get('observer/create', [CandidatController::class, 'createObserver'])->name('observer.create');
         Route::get('listes-des-observers', [CandidatController::class, 'index'])->name('observer.index');
+        Route::get('observer/{id}', [CandidatController::class, 'show'])->name('observer.show');
     });
 });
 

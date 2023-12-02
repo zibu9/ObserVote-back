@@ -58,6 +58,12 @@ class CandidatController extends Controller
         return view('admin.edit-observer', compact('observer'));
     }
 
+    public function show($id)
+    {
+        $observer = Observer::findOrFail($id);
+        return view('admin.show', compact('observer'));
+    }
+
     public function updateObserver(Request $request, $id)
     {
         $observer = Observer::findOrFail($id);
