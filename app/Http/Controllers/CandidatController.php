@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class CandidatController extends Controller
 {
+    public function index(){
+        $observers = Observer::all();
+        return view('admin.index', compact('observers'));
+    }
+
     public function createObserver()
     {
         if (Gate::allows('admin-access')) {
@@ -31,7 +36,7 @@ class CandidatController extends Controller
             'password' => 'required|string|min:8',
         ]);
         $password = $request->input('password');
-        $candidat = Observer::create([
+        $observer = Observer::create([
             'name' => $request->input('name'),
             'sexe' => $request->input('sexe'),
             'email' => $request->input('email'),
@@ -40,7 +45,7 @@ class CandidatController extends Controller
             'candidat_id' => (int) Auth::user()->candidat->id,
         ]);
 
-        $candidat->update([
+        $observer->update([
             'password' => Hash::make($password),
         ]);
 
