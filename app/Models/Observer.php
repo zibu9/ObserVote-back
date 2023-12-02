@@ -38,16 +38,16 @@ class Observer extends Model
 
     public function createUser()
     {
-        $user = new User([
+        $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
             'password' => Hash::make($this->password),
             'role_id' => 3,
-            'candidat_id' => $this->id,
+            'candidat_id' => $this->candidat_id,
         ]);
 
-        $this->users()->save($user);
+        //$this->users()->save($user);
 
         //Mail::to($this->email)
            // ->send(new NewUser($username, $this->password));

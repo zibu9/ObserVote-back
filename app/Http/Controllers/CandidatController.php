@@ -49,6 +49,6 @@ class CandidatController extends Controller
             'password' => Hash::make($password),
         ]);
 
-        return redirect()->route('candidat.index')->with('success', 'Candidat créé avec succès');
+        return redirect()->route('observer.index')->with('success', 'Temoins créé avec succès');
     }
 }
