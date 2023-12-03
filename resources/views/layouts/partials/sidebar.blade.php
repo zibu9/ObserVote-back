@@ -51,7 +51,7 @@
         </li>
         @endif
 
-        @if ((auth()->user()->role->id == 3))
+        @if ((auth()->user()->role->id == 2))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-users"></i>
@@ -81,12 +81,12 @@
             </li>
         @endif
 
-        @if ((auth()->user()->role->id == 2))
+        @if ((auth()->user()->role->id == 3))
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-users"></i>
+                <i class="nav-icon fas fa-vote-yea"></i>
                 <p>
-                Votes
+                Résultats
                 <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
