@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Observer extends Model
 {
@@ -45,7 +44,7 @@ class Observer extends Model
             'phone' => $this->phone,
             'password' => Hash::make($this->password),
             'role_id' => 3,
-            'candidat_id' => 1,
+            'candidat_id' => $this->candidat_id,
         ]);
 
         //$this->users()->save($user);
