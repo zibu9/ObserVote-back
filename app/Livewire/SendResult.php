@@ -13,6 +13,7 @@ class SendResult extends Component
     public $votantInitial = '';
     public $votant = '';
     public $nosVoix = '';
+    public $bulletinRestant = '';
 
     public function render()
     {
