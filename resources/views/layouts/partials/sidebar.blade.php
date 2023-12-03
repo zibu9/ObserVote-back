@@ -92,7 +92,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="{{ route('observer.create') }}" class="nav-link">
+                <a href="{{ route('result.create') }}" class="nav-link">
                     <i class="fa fa-plus nav-icon"></i>
                     <p>Ajouter
                     <span class="badge badge-success right">New</span>

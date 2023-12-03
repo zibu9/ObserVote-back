@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\ObserverController;
 use App\Http\Controllers\SuperAdminController;
 
 /*
@@ -46,6 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('observer/create', [CandidatController::class, 'createObserver'])->name('observer.create');
         Route::get('listes-des-observers', [CandidatController::class, 'index'])->name('observer.index');
         Route::get('observer/{id}', [CandidatController::class, 'show'])->name('observer.show');
+    });
+
+    Route::middleware(['observer'])->group(function () {
+        Route::get('resultats-observation', [ObserverController::class, 'createResult'])->name('result.create');
     });
 });
 

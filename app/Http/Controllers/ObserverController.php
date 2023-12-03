@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Gate;
 
 class ObserverController extends Controller
 {
-    public function createObserver()
+    public function createResult()
     {
         if (Gate::allows('observer-access')) {
 
