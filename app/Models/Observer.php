@@ -45,7 +45,7 @@ class Observer extends Model
             'phone' => $this->phone,
             'password' => Hash::make($this->password),
             'role_id' => 3,
-            'candidat_id' => (int) Auth::user()->candidat->id,
+            'candidat_id' => 1,
         ]);
 
         //$this->users()->save($user);
