@@ -14,7 +14,7 @@ class SendResult extends Component
     public $votant = '';
     public $nosVoix = '';
     public $bulletinRestant = '';
-    public $filled = [true, false, false, false, false, false, false];
+    public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix', '$bulletinRestant'];
 
     public function render()
     {
@@ -58,8 +58,6 @@ class SendResult extends Component
                 $this->validate(['bulletinRestant' => 'required']);
                 break;
         }
-
-        $this->filled[$this->step - 1] = true;
     }
 
 }

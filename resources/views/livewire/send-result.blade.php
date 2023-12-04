@@ -49,14 +49,20 @@
     </div>
     <div class="card-footer">
         @if($step > 1)
-            <button wire:click.live="previousStep" class="btn btn-primary">Précédent</button>
+            <button wire:click.live="previousStep" class="btn btn-sm btn-primary">Précédent</button>
         @endif
 
-        @if($step === 1 && !empty($centre))
-            <button wire:click.live="nextStep" class="btn btn-primary">Suivant</button>
-        @endif
-        @if($step === 7 && $filled[6])
-            <button wire:click.live="submitForm" class="btn btn-success">Soumettre</button>
+
+        @for ($i=0; $i<7; $i++)
+            @php
+                $var = $vars[$i];
+            @endphp
+            @if($step === $i+1 && !empty($$var))
+                <button wire:click.live="nextStep" class="btn btn-sm btn-primary">Suivant</button>
+            @endif
+        @endfor
+        @if($step === 7 )
+            <button wire:click.live="submitForm" class="btn btn-sm btn-success">Soumettre</button>
         @endif
     </div>
 </div>
