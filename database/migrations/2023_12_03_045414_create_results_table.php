@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            $table->string('centre');
+            $table->string('centreCode');
+            $table->string('bureau');
+            $table->integer('votantInitial');
+            $table->integer('votant');
+            $table->integer('nosVoix');
+            $table->integer('bulletinRestant');
+            $table->foreignId('observer_id')->constrained()->onUpdate('cascade');
             $table->timestamps();
         });
     }

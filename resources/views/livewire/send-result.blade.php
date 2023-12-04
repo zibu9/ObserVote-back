@@ -51,8 +51,6 @@
         @if($step > 1)
             <button wire:click.live="previousStep" class="btn btn-sm btn-primary">Précédent</button>
         @endif
-
-
         @for ($i=0; $i<7; $i++)
             @php
                 $var = $vars[$i];

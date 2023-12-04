@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Result;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class SendResult extends Component
 {
@@ -58,6 +60,27 @@ class SendResult extends Component
                 $this->validate(['bulletinRestant' => 'required']);
                 break;
         }
+    }
+
+    public function submitForm()
+    {
+        $this->validateStep();
+        $this->saveData();
+        return redirect()->route('result.create')->with('success', 'resultats soumis avec success');
+    }
+
+    private function saveData()
+    {
+        Result::create([
+            'centre' => $this->centre,
+            'centreCode' => $this->centreCode,
+            'bureau' => $this->bureau,
+            'votantInitial' => $this->votantInitial,
+            'votant' => $this->votant,
+            'nosVoix' => $this->nosVoix,
+            'bulletinRestant' => $this->bulletinRestant,
+            'observer_id' => (int) Auth::user()->id,
+        ]);
     }
 
 }

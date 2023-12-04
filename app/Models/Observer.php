@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Observer extends Model
 {
@@ -51,5 +52,10 @@ class Observer extends Model
 
         //Mail::to($this->email)
            // ->send(new NewUser($username, $this->password));
+    }
+
+    public function results(): HasMany
+    {
+        return $this->hasMany(Result::class);
     }
 }
