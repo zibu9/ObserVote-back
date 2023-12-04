@@ -14,7 +14,7 @@ class SendResult extends Component
     public $votant = '';
     public $nosVoix = '';
     public $bulletinRestant = '';
-    public $filled = [false, false, false, false, false, false, false];
+    public $filled = [true, false, false, false, false, false, false];
 
     public function render()
     {
