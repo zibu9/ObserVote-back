@@ -39,7 +39,7 @@ class SendResult extends Component
                 break;
 
             case 2:
-                $this->validate(['centreCode' => 'required|email']);
+                $this->validate(['centreCode' => 'required']);
                 break;
 
             case 3:

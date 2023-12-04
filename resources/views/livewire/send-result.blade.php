@@ -52,9 +52,10 @@
             <button wire:click.live="previousStep" class="btn btn-primary">Précédent</button>
         @endif
 
-        @if($step < 7)
+        @if($step < 7 && $filled[$step - 1])
             <button wire:click.live="nextStep" class="btn btn-primary">Suivant</button>
-        @else
+        @endif
+        @if($step === 7 && $filled[6])
             <button wire:click.live="submitForm" class="btn btn-success">Soumettre</button>
         @endif
     </div>
