@@ -17,7 +17,7 @@ class SendResult extends Component
     public $votant = '';
     public $nosVoix = '';
     public $bulletinRestant = '';
-    public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix', '$bulletinRestant'];
+    public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix'];
 
     public function render()
     {
@@ -84,6 +84,7 @@ class SendResult extends Component
             'nosVoix' => $this->nosVoix,
             'bulletinRestant' => $this->bulletinRestant,
             'observer_id' => $observer->id,
+            'candidat_id' => $observer->candidat_id,
         ]);
     }
 

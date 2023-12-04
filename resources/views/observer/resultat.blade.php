@@ -22,25 +22,22 @@
     <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
+        <div class="content">
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <!-- Le reste de votre contenu -->
+        </div>
         <div class="row">
-            <div class="content">
-                @if(session('success'))
-                    <div class="alert alert-success alert-dismissible">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                <!-- Le reste de votre contenu -->
-            </div>
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
                       <h3 class="card-title">Ajouter Observateur</h3>
                     </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                        @csrf
-                        <livewire:send-result />
+                    <livewire:send-result />
                   </div>
             </div>
             <!-- /.col-->

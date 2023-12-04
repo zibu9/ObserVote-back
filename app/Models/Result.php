@@ -19,6 +19,7 @@ class Result extends Model
         'nosVoix',
         'bulletinRestant',
         'observer_id',
+        'candidat_id',
     ];
 
     public function observer(): BelongsTo

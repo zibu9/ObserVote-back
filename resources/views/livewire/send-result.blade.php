@@ -51,7 +51,7 @@
         @if($step > 1)
             <button wire:click.live="previousStep" class="btn btn-sm btn-primary">Précédent</button>
         @endif
-        @for ($i=0; $i<7; $i++)
+        @for ($i=0; $i<6; $i++)
             @php
                 $var = $vars[$i];
             @endphp
@@ -59,7 +59,7 @@
                 <button wire:click.live="nextStep" class="btn btn-sm btn-primary">Suivant</button>
             @endif
         @endfor
-        @if($step === 7 )
+        @if($step === 7 && !empty($bulletinRestant))
             <button wire:click.live="submitForm" class="btn btn-sm btn-success">Soumettre</button>
         @endif
     </div>
