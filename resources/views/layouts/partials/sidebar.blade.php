@@ -100,7 +100,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                <a href="{{ route('observer.index') }}" class="nav-link">
+                <a href="{{ route('result.index') }}" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>Liste
                     <span class="badge badge-success right">All</span>

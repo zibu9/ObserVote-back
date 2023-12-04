@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Observer extends Model
@@ -54,7 +53,7 @@ class Observer extends Model
            // ->send(new NewUser($username, $this->password));
     }
 
-    public function results(): HasMany
+    public function results()
     {
         return $this->hasMany(Result::class);
     }

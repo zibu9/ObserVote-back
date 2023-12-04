@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Acceuil</a></li>
-                    <li class="breadcrumb-item"><a href="">Candidats</a></li>
+                    <li class="breadcrumb-item"><a href="">Resultats vote</a></li>
                     <li class="breadcrumb-item active">Nouveau</li>
                     </ol>
                 </div><!-- /.col -->
