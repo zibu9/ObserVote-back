@@ -15,34 +15,34 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Nom Centre de vote</label>
-                    <input wire:model.live="centre" type="text" class="form-control" value="{{ $result->centre }}">
+                    <input value="{{ $centre }}" wire:model="centre" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Code du Centre de vote</label>
-                    <input wire:model.live="centreCode" type="text" class="form-control">
+                    <input wire:model="centreCode" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Code du bureau de vote</label>
-                    <input wire:model.live="bureau" type="text" class="form-control">
+                    <input wire:model="bureau" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Votants prevu</label>
-                    <input wire:model.live="votantInitial" type="text" class="form-control">
+                    <input wire:model="votantInitial" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Nombres des votants</label>
-                    <input wire:model.live="votant" type="text" class="form-control">
+                    <input wire:model="votant" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Nos Votants</label>
-                    <input wire:model.live="nosVoix" type="text" class="form-control">
+                    <input wire:model="nosVoix" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Bulletins Restants</label>
-                    <input wire:model.live="bulletinRestant" type="text" class="form-control">
+                    <input wire:model="bulletinRestant" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input wire:model.live="id" type="text" class="form-control" hidden >
+                    <input wire:model="id" type="text" class="form-control" hidden >
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
