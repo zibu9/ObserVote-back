@@ -24,5 +24,12 @@ class UpdateResult extends Component
     public function mount()
     {
         $this->centre = $this->result->centre;
+        $this->centreCode = $this->result->centreCode;
+        $this->bureau = $this->result->bureau;
+        $this->votantInitial = $this->result->votantInitial;
+        $this->votant = $this->result->votant;
+        $this->nosVoix = $this->result->nosVoix;
+        $this->bulletinRestant = $this->result->bulletinRestant;
+        $this->id = $this->result->id;
     }
 }
