@@ -33,7 +33,15 @@
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <livewire:send-result />
+                <div class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">Ajouter Observateur</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                        @csrf
+                        <livewire:send-result />
+                  </div>
             </div>
             <!-- /.col-->
         </div>
