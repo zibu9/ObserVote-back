@@ -78,7 +78,7 @@
                           <td>{{ $result->observer->candidat->candidat }}</td>
 
                           <td class="">
-                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default">
+                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
@@ -88,6 +88,7 @@
                         @php
                             $i++;
                         @endphp
+                        <livewire:update-result :result="$result" />
                         @endforeach
                       </tbody>
                     </table>
@@ -97,6 +98,5 @@
                 <!-- /.card -->
               </div>
         </div>
-        <livewire:update-result />
     </section>
 @endsection
