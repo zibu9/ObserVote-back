@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('votant');
             $table->integer('nosVoix');
             $table->integer('bulletinRestant');
-            $table->foreignId('observer_id')->constrained()->onUpdate('cascade');
+            $table->foreignId('observer_id')->constrained();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Observer;
 use App\Models\Result;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -71,6 +72,9 @@ class SendResult extends Component
 
     private function saveData()
     {
+        $observer = Observer::where('email', Auth::user()->email)
+                        ->orWhere('phone', Auth::user()->phone)
+                        ->first();
         Result::create([
             'centre' => $this->centre,
             'centreCode' => $this->centreCode,
@@ -79,7 +83,7 @@ class SendResult extends Component
             'votant' => $this->votant,
             'nosVoix' => $this->nosVoix,
             'bulletinRestant' => $this->bulletinRestant,
-            'observer_id' => (int) Auth::user()->id,
+            'observer_id' => $observer->id,
         ]);
     }
 
