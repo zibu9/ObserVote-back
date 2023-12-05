@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 class CandidatController extends Controller
 {
     public function index(){
-        $observers = Observer::all();
+        $observers = Auth::user()->candidat->observers;
         return view('admin.index', compact('observers'));
     }
 
