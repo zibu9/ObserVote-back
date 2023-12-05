@@ -97,7 +97,7 @@ class CandidatController extends Controller
             'votant' => $votant,
             'nosVoix' => $nosVoix,
             'bulletinRestant' => $bulletinRestant,
-            'percent' => $percent,
+            'percent' => round($percent, 2),
         ];
         return view('admin.result', compact('results', 'total'));
     }
