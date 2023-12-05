@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidat;
 use App\Models\Observer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,5 +76,15 @@ class CandidatController extends Controller
         $observer->update($validatedData);
 
         return redirect()->route('observer.index')->with('success', 'Temoins mis à jour avec succès !');
+    }
+
+    public function results()
+    {
+        $candidat = Candidat::where('email', Auth::user()->email)
+                ->orWhere('phone', Auth::user()->phone)
+                ->first();
+        $results = $candidat->results;
+
+        return view('admin.result', compact('results'));
     }
 }

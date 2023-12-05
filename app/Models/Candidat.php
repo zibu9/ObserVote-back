@@ -36,6 +36,11 @@ class Candidat extends Model
         return $this->hasMany(Observer::class);
     }
 
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
+
     public function type()
     {
         return $this->belongsTo(Type::class);

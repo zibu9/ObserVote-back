@@ -26,4 +26,9 @@ class Result extends Model
     {
         return $this->belongsTo(Observer::class);
     }
+
+    public function candidat()
+    {
+        return $this->belongsTo(Candidat::class);
+    }
 }
