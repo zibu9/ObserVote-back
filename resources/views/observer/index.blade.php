@@ -28,6 +28,12 @@
             </div>
         @endif
 
+        @if(session()->has('warning'))
+            <div class="alert alert-warning alert-dismissible">
+                {{ session('warning') }}
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -81,7 +87,7 @@
                           <td>{{ $result->observer->candidat->candidat }}</td>
 
                           <td class="">
-                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}" {{ $disableButton ? 'disabled' : '' }}>
+                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}" {{ $disableButton ? 'disable' : '' }}>
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit

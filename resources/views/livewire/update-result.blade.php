@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-sm btn-primary">Enregistrer</button>
+              <button wire:click.live="update" type="button" class="btn btn-sm btn-primary">Enregistrer</button>
             </div>
           </div>
           <!-- /.modal-content -->
