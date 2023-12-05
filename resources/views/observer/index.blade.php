@@ -63,9 +63,12 @@
                       </thead>
                       <tbody>
                         @php
-                        $i = 1;
+                            $i = 1;
                         @endphp
                         @foreach ($results as $result)
+                        @php
+                            $disableButton = $result->created_at != $result->updated_at;
+                        @endphp
                         <tr>
                           <td>{{ $i }}</td>
                           <td>{{ $result->centre }}</td>
@@ -78,7 +81,7 @@
                           <td>{{ $result->observer->candidat->candidat }}</td>
 
                           <td class="">
-                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}">
+                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}" {{ $disableButton ? 'disabled' : '' }}>
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit
