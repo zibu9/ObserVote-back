@@ -57,8 +57,8 @@ class SendResult extends Component
             case 6:
                 $this->validate(['nosVoix' => 'required']);
                 break;
-            case 7:
-                $this->validate(['bulletinRestant' => 'required']);
+            // case 7:
+            //     $this->validate(['bulletinRestant' => 'required']);
                 break;
         }
     }
@@ -67,7 +67,7 @@ class SendResult extends Component
     {
         $this->validateStep();
         $this->saveData();
-        return redirect()->route('result.create')->with('success', 'resultats soumis avec success');
+        return redirect()->route('result.index')->with('success', 'resultats soumis avec success');
     }
 
     private function saveData()
@@ -82,7 +82,7 @@ class SendResult extends Component
             'votantInitial' => $this->votantInitial,
             'votant' => $this->votant,
             'nosVoix' => $this->nosVoix,
-            'bulletinRestant' => $this->bulletinRestant,
+            'bulletinRestant' => ($this->bulletinRestant) ? $this->bulletinRestant : '0',
             'observer_id' => $observer->id,
             'candidat_id' => $observer->candidat_id,
         ]);

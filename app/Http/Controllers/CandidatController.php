@@ -85,12 +85,13 @@ class CandidatController extends Controller
                 ->orWhere('phone', Auth::user()->phone)
                 ->first();
         $results = $candidat->results;
+
         $res = Result::where('candidat_id', $candidat->id);
         $votantInitial = $res->sum('votantInitial');
         $votant = $res->sum('votant');
         $nosVoix = $res->sum('nosVoix');
         $bulletinRestant = $res->sum('bulletinRestant');
-        $percent = ($nosVoix / $votant*100);
+        $percent = ($votant > 0) ? ($nosVoix / $votant*100) : 0;
 
         $total = [
             'votantInitial' => $votantInitial,
