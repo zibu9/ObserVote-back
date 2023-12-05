@@ -16,7 +16,7 @@ class SendResult extends Component
     public $votantInitial = '';
     public $votant = '';
     public $nosVoix = '';
-    public $bulletinRestant = '';
+    public $bulletinRestant;
     public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix'];
 
     public function render()

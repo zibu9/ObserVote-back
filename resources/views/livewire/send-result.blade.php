@@ -40,7 +40,7 @@
                 <input wire:model.live="nosVoix" type="text" class="form-control">
             </div>
         @endif
-        @if($step === 7 )
+        @if($step === 7 && ($votantInitial != $votant) )
             <div class="form-group">
                 <label for="name">Bulletins Restants</label>
                 <input wire:model.live="bulletinRestant" type="text" class="form-control">
@@ -51,7 +51,10 @@
         @if($step > 1)
             <button wire:click.live="previousStep" class="btn btn-sm btn-primary">Précédent</button>
         @endif
-        @for ($i=0; $i<6; $i++)
+        @php
+            ($votantInitial == $votant) ? $n=5 : $n=6;
+        @endphp
+        @for ($i=0; $i<$n; $i++)
             @php
                 $var = $vars[$i];
             @endphp
@@ -60,6 +63,9 @@
             @endif
         @endfor
         @if($step === 7 && !empty($bulletinRestant))
+            <button wire:click.live="submitForm" class="btn btn-sm btn-success">Soumettre</button>
+        @endif
+        @if($step === 6 && ($votantInitial == $votant))
             <button wire:click.live="submitForm" class="btn btn-sm btn-success">Soumettre</button>
         @endif
     </div>
