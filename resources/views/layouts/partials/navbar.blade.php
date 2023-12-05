@@ -9,5 +9,15 @@
         <a href="{{ route('home') }}" class="nav-link">Home</a>
       </li>
     </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+          <i class="fas fa-power-off"></i> Deconnexion
+        </a>
+        <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none;">@csrf</form>
+      </li>
+    </ul>
   </nav>
   <!-- /.navbar -->
