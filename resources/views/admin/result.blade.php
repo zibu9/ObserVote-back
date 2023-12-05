@@ -93,20 +93,20 @@
                             $i++;
                         @endphp
                         @endforeach
-                            <tr class="bg-success">
-                                <td>Total</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>{{ $result->votantInitial }}</td>
-                                <td>{{ $result->votant }}</td>
-                                <td>{{ $result->nosVoix }}</td>
-                                <td>{{ $result->bulletinRestant }}</td>
-                                <td>{{ $result->observer->candidat->candidat }}</td>
+                        <tr class="bg-success">
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{  $total['votantInitial'] }}</td>
+                            <td>{{ $total['votant'] }}</td>
+                            <td>{{ $total['nosVoix'] }}</td>
+                            <td>{{ $total['bulletinRestant'] }}</td>
+                            <td></td>
 
-                                <td class="">
-                                </td>
-                            </tr>
+                            <td class="">
+                            </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>

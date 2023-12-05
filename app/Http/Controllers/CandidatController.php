@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidat;
 use App\Models\Observer;
+use App\Models\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -84,7 +85,18 @@ class CandidatController extends Controller
                 ->orWhere('phone', Auth::user()->phone)
                 ->first();
         $results = $candidat->results;
+        $res = Result::where('candidat_id', $candidat->id);
+        $votantInitial = $res->sum('votantInitial');
+        $votant = $res->sum('votant');
+        $nosVoix = $res->sum('nosVoix');
+        $bulletinRestant = $res->sum('bulletinRestant');
 
-        return view('admin.result', compact('results'));
+        $total = [
+            'votantInitial' => $votantInitial,
+            'votant' => $votant,
+            'nosVoix' => $nosVoix,
+            'bulletinRestant' => $bulletinRestant,
+        ];
+        return view('admin.result', compact('results', 'total'));
     }
 }
