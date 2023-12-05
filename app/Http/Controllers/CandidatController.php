@@ -90,12 +90,14 @@ class CandidatController extends Controller
         $votant = $res->sum('votant');
         $nosVoix = $res->sum('nosVoix');
         $bulletinRestant = $res->sum('bulletinRestant');
+        $percent = ($nosVoix / $votant*100);
 
         $total = [
             'votantInitial' => $votantInitial,
             'votant' => $votant,
             'nosVoix' => $nosVoix,
             'bulletinRestant' => $bulletinRestant,
+            'percent' => $percent,
         ];
         return view('admin.result', compact('results', 'total'));
     }

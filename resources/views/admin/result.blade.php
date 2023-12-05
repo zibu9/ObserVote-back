@@ -54,7 +54,7 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>{{ $total['nosVoix'] }}<sup style="font-size: 20px">%</sup></h3>
+                  <h3>{{ $total['nosVoix'] }} = <sup style="font-size: 20px">{{ $total['percent'] }}%</sup></h3>
                   <p>Nos Votants</p>
                 </div>
                 <div class="icon">
@@ -83,9 +83,9 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{ $total['bulletinRestant'] }}</h3>
 
-                  <p>Unique Visitors</p>
+                  <p>Bulletins Restants</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-vote-yea"></i>

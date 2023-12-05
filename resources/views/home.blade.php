@@ -73,7 +73,7 @@
                     <div class="inner">
                     <h3>65</h3>
 
-                    <p>Unique Visitors</p>
+                    <p>Bulletins restants</p>
                     </div>
                     <div class="icon">
                     <i class="ion ion-pie-graph"></i>
@@ -85,6 +85,5 @@
             </div>
         </section>
         @endif
-
     @endauth
 @endsection
