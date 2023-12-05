@@ -48,7 +48,7 @@ class UpdateResult extends Component
             'nosVoix' => $this->nosVoix,
             'bulletinRestant' => $this->bulletinRestant,
         ];
-        if ( $result->created_at === $result->updated_at) {
+        if ($result->created_at == $result->updated_at) {
             $result->update($table);
             return redirect()->route('result.index')->with('success', 'resultats modifier avec success');
         }
