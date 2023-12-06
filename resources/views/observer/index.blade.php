@@ -56,6 +56,8 @@
                       <thead>
                         <tr>
                           <th>#</th>
+                          <th>Province</th>
+                          <th>Circonscription</th>
                           <th>Centre de Vote</th>
                           <th>Code Centre</th>
                           <th>Bureau de Vote</th>
@@ -77,6 +79,8 @@
                         @endphp
                         <tr>
                           <td>{{ $i }}</td>
+                          <td>{{ $result->province }}</td>
+                          <td>{{ $result->circonscription }}</td>
                           <td>{{ $result->centre }}</td>
                           <td>{{ $result->centreCode }}</td>
                           <td>{{ $result->bureau }}</td>

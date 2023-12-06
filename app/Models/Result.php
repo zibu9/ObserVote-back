@@ -11,6 +11,8 @@ class Result extends Model
     use HasFactory;
 
     protected $fillable = [
+        'province',
+        'circonscription',
         'centre',
         'centreCode',
         'bureau',

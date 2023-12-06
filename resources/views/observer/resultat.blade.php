@@ -35,7 +35,7 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Ajouter Observateur</h3>
+                      <h3 class="card-title">Ajouter Resultat</h3>
                     </div>
                     <livewire:send-result />
                   </div>

@@ -9,6 +9,7 @@
               </button>
             </div>
             <div class="modal-body row">
+                <p for="name" class="text-danger font-weight-bold">!! La modification n'est autorisée qu'une seule fois.</p>
                 <div class="form-group col-md-6">
                     <label for="name">Candidat</label>
                     <input type="text" disabled class="form-control" value="{{ auth()->user()->candidat->candidat }}">
