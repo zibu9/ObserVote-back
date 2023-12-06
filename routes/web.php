@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('listes-des-observers', [CandidatController::class, 'index'])->name('observer.index');
         Route::get('observer/{id}', [CandidatController::class, 'show'])->name('observer.show');
         Route::get('nos-resultats', [CandidatController::class, 'results'])->name('admin.results');
+        Route::get('resultats-details', [CandidatController::class, 'details'])->name('admin.details');
     });
 
     Route::middleware(['observer'])->group(function () {

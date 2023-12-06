@@ -13,6 +13,11 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-user-edit"></i> modifier mot de passe
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
           <i class="fas fa-power-off"></i> Deconnexion
         </a>

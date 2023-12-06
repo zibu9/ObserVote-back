@@ -102,4 +102,9 @@ class CandidatController extends Controller
         ];
         return view('admin.result', compact('results', 'total'));
     }
+
+    public function details()
+    {
+        return view('admin.details');
+    }
 }

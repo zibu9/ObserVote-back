@@ -60,7 +60,7 @@
                 <div class="icon">
                     <i class="fas fa-vote-yea"></i>
                 </div>
-                <a href="#" class="small-box-footer">Details <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.details') }}" class="small-box-footer">Details <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -113,11 +113,13 @@
                     </div>
                   </div>
                   <!-- /.card-header -->
-                  <div class="card-body table-responsive p-0" style="height: 400px;">
+                  <div class="card-body table-responsive p-0">
                     <table class="table table-head-fixed text-nowrap">
                       <thead>
                         <tr>
                           <th>#</th>
+                          <th>Province</th>
+                          <th>Circonscription</th>
                           <th>Centre de Vote</th>
                           <th>Code Centre</th>
                           <th>Bureau de Vote</th>
@@ -126,7 +128,6 @@
                           <th>Nos Voix</th>
                           <th>Bulletins restant</th>
                           <th>Observateur</th>
-                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -139,6 +140,8 @@
                         @endphp
                         <tr>
                           <td>{{ $i }}</td>
+                          <td>{{ $result->province }}</td>
+                          <td>{{ $result->circonscription }}</td>
                           <td>{{ $result->centre }}</td>
                           <td>{{ $result->centreCode }}</td>
                           <td>{{ $result->bureau }}</td>
@@ -147,9 +150,6 @@
                           <td>{{ $result->nosVoix }}</td>
                           <td>{{ $result->bulletinRestant }}</td>
                           <td>{{ $result->observer->name }}</td>
-
-                          <td class="">
-                          </td>
                         </tr>
                         @php
                             $i++;
@@ -160,14 +160,13 @@
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            <td></td>
                             <td>{{  $total['votantInitial'] }}</td>
                             <td>{{ $total['votant'] }}</td>
                             <td>{{ $total['nosVoix'] }}</td>
                             <td>{{ $total['bulletinRestant'] }}</td>
                             <td></td>
-
-                            <td class="">
-                            </td>
                         </tr>
                       </tbody>
                     </table>

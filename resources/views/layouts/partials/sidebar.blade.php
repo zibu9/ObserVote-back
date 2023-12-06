@@ -9,14 +9,21 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
+      <div class="mt-2 mb-3 text-center">
+        <div class="info">
+          <a href="#" class="d-block">{{ auth()->user()->role->role }}</a>
+        </div>
+      </div>
+
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->role->role }}</a>
+          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
