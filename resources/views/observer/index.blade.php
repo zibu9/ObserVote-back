@@ -87,17 +87,16 @@
                           <td>{{ $result->observer->candidat->candidat }}</td>
 
                           <td class="">
-                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}" {{ $disableButton ? 'disable' : '' }}>
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </button>
-                             </td>
+                            <button href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}" {{ $disableButton ? 'disabled' : '' }}>
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Edit
+                            </button>
+                          </td>
                         </tr>
                         @php
                             $i++;
                         @endphp
-                        <livewire:update-result :result="$result" />
                         @endforeach
                       </tbody>
                     </table>
@@ -107,5 +106,8 @@
                 <!-- /.card -->
               </div>
         </div>
+        @foreach ($results as $result)
+            <livewire:update-result :result="$result" />
+        @endforeach
     </section>
 @endsection

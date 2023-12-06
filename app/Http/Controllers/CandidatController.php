@@ -34,7 +34,7 @@ class CandidatController extends Controller
             'name' => 'required|string',
             'sexe' => 'required|string',
             'email' => 'email|unique:observers,email',
-            'phone' => 'required|string|unique:observers,phone',
+            'phone' => 'string|unique:observers,phone',
             'password' => 'required|string|min:8',
         ]);
         $password = $request->input('password');
