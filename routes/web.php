@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('observer/{id}', [CandidatController::class, 'show'])->name('observer.show');
         Route::get('nos-resultats', [CandidatController::class, 'results'])->name('admin.results');
         Route::get('resultats-details', [CandidatController::class, 'details'])->name('admin.details');
+        Route::get('/change-password', [CandidatController::class, 'showChangePasswordForm'])->name('change-password');
     });
 
     Route::middleware(['observer'])->group(function () {

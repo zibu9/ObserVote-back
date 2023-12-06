@@ -84,7 +84,7 @@ class CandidatController extends Controller
         $candidat = Candidat::where('email', Auth::user()->email)
                 ->orWhere('phone', Auth::user()->phone)
                 ->first();
-        $results = $candidat->results;
+        $results = $candidat->results()->paginate(5);
 
         $res = Result::where('candidat_id', $candidat->id);
         $votantInitial = $res->sum('votantInitial');
@@ -106,5 +106,10 @@ class CandidatController extends Controller
     public function details()
     {
         return view('admin.details');
+    }
+
+    public function showChangePasswordForm()
+    {
+        return view('admin.change-password');
     }
 }

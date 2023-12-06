@@ -172,6 +172,9 @@
                     </table>
                   </div>
                   <!-- /.card-body -->
+                  <div class="card-footer clearfix">
+                    {{ $results->links() }}
+                  </div>
                 </div>
                 <!-- /.card -->
               </div>

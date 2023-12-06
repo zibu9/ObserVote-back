@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Listes des Candidats')
+@section('title', 'details elections')
 @section('main')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -11,24 +11,101 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Resultats</a></li>
-                    <li class="breadcrumb-item active">Détails</li>
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active">Mes Resultats</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
 
-    @if(session()->has('success'))
-        <div class="alert alert-success alert-dismissible">
-            {{ session('success') }}
+    <!-- Main content -->
+    <section class="content">
+        @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session()->has('warning'))
+            <div class="alert alert-warning alert-dismissible">
+                {{ session('warning') }}
+            </div>
+        @endif
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-info">
+                  <div class="card-header">
+                    <h3 class="card-title">Les Resultats</h3>
+
+                    {{-- <div class="card-tools">
+                      <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                      </div>
+                    </div> --}}
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body table-responsive p-0">
+                    <div class="input-group input-group-sm p-2">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <table class="table table-head-fixed text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Province</th>
+                          <th>Circonscription</th>
+                          <th>Centre de Vote</th>
+                          <th>Code Centre</th>
+                          <th>Bureau de Vote</th>
+                          <th>Votants initial</th>
+                          <th>Votants</th>
+                          <th>Nos Voix</th>
+                          <th>Bulletins restant</th>
+                          <th>Observateur</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        <tr class="bg-success">
+                            <td>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+
+                  </div>
+                </div>
+                <!-- /.card -->
+              </div>
         </div>
-    @endif
-
-    @if(session()->has('warning'))
-        <div class="alert alert-warning alert-dismissible">
-            {{ session('warning') }}
-        </div>
-    @endif
-
+    </section>
 @endsection
+

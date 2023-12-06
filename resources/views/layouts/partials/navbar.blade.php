@@ -12,11 +12,13 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-user-edit"></i> modifier mot de passe
-        </a>
-      </li>
+      @if ((auth()->user()->role->id < 3))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('change-password') }}">
+                <i class="fas fa-user-edit"></i> modifier mot de passe
+            </a>
+        </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
           <i class="fas fa-power-off"></i> Deconnexion
