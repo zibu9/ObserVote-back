@@ -18,12 +18,18 @@ class SendResult extends Component
     public $votantInitial = '';
     public $votant = '';
     public $nosVoix = '';
-    public $bulletinRestant;
     public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix'];
 
     public function render()
     {
-        return view('livewire.send-result');
+        return view('livewire.send-result', [
+            'bulletinRestant' => $this->calculateBulletinRestant(),
+        ]);
+    }
+
+    protected function calculateBulletinRestant()
+    {
+        return (int) $this->votantInitial - (int) $this->votant;
     }
 
     public function nextStep()
@@ -88,7 +94,7 @@ class SendResult extends Component
             'votantInitial' => $this->votantInitial,
             'votant' => $this->votant,
             'nosVoix' => $this->nosVoix,
-            'bulletinRestant' => ($this->bulletinRestant) ? $this->bulletinRestant : '0',
+            'bulletinRestant' => $this->calculateBulletinRestant(),
             'observer_id' => $observer->id,
             'candidat_id' => $observer->candidat_id,
         ]);
