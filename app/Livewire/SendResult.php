@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class SendResult extends Component
 {
     public $step = 1;
+    public $province = '';
+    public $circonscription = '';
     public $centre = '';
     public $centreCode = '';
     public $bureau = '';
@@ -38,6 +40,8 @@ class SendResult extends Component
     {
         switch ($this->step) {
             case 1:
+                $this->validate(['province' => 'required']);
+                $this->validate(['circonscription' => 'required']);
                 $this->validate(['centre' => 'required']);
                 break;
 
@@ -76,6 +80,8 @@ class SendResult extends Component
                         ->orWhere('phone', Auth::user()->phone)
                         ->first();
         Result::create([
+            'province' => $this->province,
+            'circonscription' => $this->circonscription,
             'centre' => $this->centre,
             'centreCode' => $this->centreCode,
             'bureau' => $this->bureau,

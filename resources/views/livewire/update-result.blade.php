@@ -14,6 +14,14 @@
                     <input type="text" disabled class="form-control" value="{{ auth()->user()->candidat->candidat }}">
                 </div>
                 <div class="form-group col-md-6">
+                    <label for="name">Province</label>
+                    <input value="{{ $province }}" wire:model="centre" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="name">Circonscription</label>
+                    <input value="{{ $circonscription }}" wire:model="centre" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
                     <label for="name">Nom Centre de vote</label>
                     <input value="{{ $centre }}" wire:model="centre" type="text" class="form-control">
                 </div>

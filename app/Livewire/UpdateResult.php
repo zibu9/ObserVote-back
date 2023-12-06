@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Gate;
 class UpdateResult extends Component
 {
     public $result;
+    public $circonscription;
+    public $province;
     public $centre;
     public $centreCode;
     public $bureau;
@@ -26,6 +28,8 @@ class UpdateResult extends Component
 
     public function mount()
     {
+        $this->province = $this->result->province;
+        $this->circonscription = $this->result->circonscription;
         $this->centre = $this->result->centre;
         $this->centreCode = $this->result->centreCode;
         $this->bureau = $this->result->bureau;

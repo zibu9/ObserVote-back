@@ -6,6 +6,14 @@
         </div>
         @if($step === 1 )
             <div class="form-group">
+                <label for="name">Province</label>
+                <input wire:model.live="province" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="name">Circonscription</label>
+                <input wire:model.live="circonscription" type="text" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="name">Nom Centre de vote</label>
                 <input wire:model.live="centre" type="text" class="form-control">
             </div>
@@ -43,7 +51,7 @@
         @if($step === 7 && ($votantInitial != $votant) )
             <div class="form-group">
                 <label for="name">Bulletins Restants</label>
-                <input wire:model.live="bulletinRestant" type="text" class="form-control">
+                <input value="{{ $votantInitial - $votant }}" wire:model.live="bulletinRestant" type="text" class="form-control">
             </div>
         @endif
     </div>
