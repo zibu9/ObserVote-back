@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Candidat;
+use App\Models\Province;
+use App\Models\Circonscription;
 use Illuminate\Support\Facades\Hash;
 
 class AddCandidat extends Component
@@ -20,16 +22,32 @@ class AddCandidat extends Component
     public $email;
     public $phone;
     public $password;
+    public $provinces;
+    public $circonscriptions;
+    public $selectProvince = NULL;
+    public $selectCirconscription = NULL;
+    public $selectId;
 
-    public function mount($types)
+    public function mount($types, $provinces)
     {
         $this->types = $types;
         $this->type_id = $types[0]->id; // Sélectionnez le premier type par défaut
+        $this->provinces = $provinces;
+        $this->circonscriptions = collect();
+        $this->selectId = 'select2_' . uniqid();
     }
 
     public function render()
     {
         return view('livewire.add-candidat');
+    }
+
+    public function updatedSelectProvince($pays)
+    {
+        if(!empty($pays)){
+            $province = Province::find($pays);
+            $this->circonscriptions = $province->circonscriptions();
+        }
     }
 
     public function submitForm()

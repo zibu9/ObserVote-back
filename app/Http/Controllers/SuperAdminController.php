@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Type;
 use App\Models\Candidat;
+use App\Models\Circonscription;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +22,9 @@ class SuperAdminController extends Controller
     {
         $candidat = Candidat::findOrFail($id);
         $types = Type::all();
-        return view('superadmin.edit-candidat', compact('candidat', 'types'));
+        $provinces = Province::all();
+        $circonscriptions = Circonscription::all();
+        return view('superadmin.edit-candidat', compact('candidat', 'types', 'provinces', 'circonscriptions'));
     }
 
     public function show($id)
@@ -33,8 +37,9 @@ class SuperAdminController extends Controller
     {
         if (Gate::allows('superadmin-access')) {
             $types = Type::all();
-
-            return view('superadmin.candidat', compact('types'));
+            $provinces = Province::all();
+            $circonscriptions = Circonscription::all();
+            return view('superadmin.candidat', compact('types', 'provinces'));
         } else {
             abort(403);
         }

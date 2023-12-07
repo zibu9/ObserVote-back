@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+@section('css')
+      <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+@endsection
 @section('title', 'Home')
 @section('main')
     <!-- Content Header (Page header) -->
@@ -22,6 +26,7 @@
     <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
+        <div class="card-body">
         <div class="row">
             <div class="content">
                 @if(session('success'))
@@ -31,13 +36,32 @@
                 @endif
                 <!-- Le reste de votre contenu -->
             </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <livewire:add-candidat :types="$types" />
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <livewire:add-candidat
+                    :types="$types"
+                    :provinces="$provinces"
+                />
             </div>
             <!-- /.col-->
         </div>
         <!-- ./row -->
     </section>
     <!-- /.content -->
+@endsection
+
+@section('script')
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script>
+        $(function () {
+          //Initialize Select2 Elements
+          $('.select2').select2()
+
+          //Initialize Select2 Elements
+          $('.select2bs4').select2({
+            theme: 'bootstrap4'
+          })
+
+        })
+      </script>
 @endsection
