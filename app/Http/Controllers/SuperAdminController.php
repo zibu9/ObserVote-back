@@ -14,7 +14,7 @@ class SuperAdminController extends Controller
 {
 
     public function index(){
-        $candidats = Candidat::all();
+        $candidats = Candidat::all()->paginate(10);
         return view('superadmin.index', compact('candidats'));
     }
 
