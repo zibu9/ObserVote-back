@@ -52,15 +52,15 @@ class AddCandidat extends Component
 
     public function submitForm()
     {
-        // $this->validate([
-        //     'name' => 'required|string',
-        //     'parti' => 'required|string',
-        //     'candidat' => 'required|string',
-        //     'sexe' => 'required|string',
-        //     'email' => 'required|email|unique:candidats,email',
-        //     'phone' => 'unique:candidats,phone',
-        //     'password' => 'required|string|min:8',
-        // ]);
+        $this->validate([
+            'name' => 'required|string',
+            'parti' => 'required|string',
+            'candidat' => 'required|string',
+            'sexe' => 'required|string',
+            'email' => 'required|email|unique:candidats,email',
+            'phone' => 'unique:candidats,phone',
+            'password' => 'required|string|min:8',
+        ]);
 
         dd($this->sexe);
 
