@@ -62,8 +62,6 @@ class AddCandidat extends Component
             'password' => 'required|string|min:8',
         ]);
 
-        dd($this->sexe);
-
         $password = $this->password;
 
         $candidat = Candidat::create([
