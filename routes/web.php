@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::middleware(['observer'])->group(function () {
-        Route::get('resultats-observation', [ObserverController::class, 'createResult'])->name('result.create');
+        Route::get('envoyer-resultats', [ObserverController::class, 'createResult'])->name('result.create');
         Route::get('resultats-envoyer', [ObserverController::class, 'index'])->name('result.index');
     });
 });

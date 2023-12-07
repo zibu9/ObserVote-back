@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Observer;
+use App\Models\Province;
+use App\Models\Circonscription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,14 +16,17 @@ class ObserverController extends Controller
                         ->orWhere('phone', Auth::user()->phone)
                         ->first();
         $results = $observer->results;
-        return view('observer.index', compact('results'));
+        $provinces = Province::all();
+        $circonscriptions = Circonscription::all();
+        return view('observer.index', compact('results', 'provinces', 'circonscriptions'));
     }
 
     public function createResult()
     {
         if (Gate::allows('observer-access')) {
-
-            return view('observer.resultat');
+            $provinces = Province::all();
+            $circonscriptions = Circonscription::all();
+            return view('observer.resultat', compact('provinces', 'circonscriptions'));
         } else {
             abort(403);
         }
