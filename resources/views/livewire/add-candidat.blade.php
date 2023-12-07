@@ -37,14 +37,16 @@
                 <option value="Autre">Autre</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="name">Province</label>
-            <input wire:model.live="province" type="text" class="form-control" placeholder="Enter la province">
-        </div>
-        <div class="form-group">
-            <label for="name">Circonscription</label>
-            <input wire:model.live="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
-        </div>
+        @if ($type_id != 1)
+            <div class="form-group">
+                <label for="name">Province</label>
+                <input wire:model.live="province" type="text" class="form-control" placeholder="Enter la province">
+            </div>
+            <div class="form-group">
+                <label for="name">Circonscription</label>
+                <input wire:model.live="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
+            </div>
+        @endif
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
             <input wire:model.live="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">

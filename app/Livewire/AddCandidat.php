@@ -10,7 +10,6 @@ class AddCandidat extends Component
 {
     public $types;
     public $type_id;
-    public $showInput = false;
     public $name;
     public $regroupement;
     public $parti;
@@ -26,17 +25,11 @@ class AddCandidat extends Component
     {
         $this->types = $types;
         $this->type_id = $types[0]->id; // Sélectionnez le premier type par défaut
-        $this->updatedType_id($types[0]->id);
     }
 
     public function render()
     {
         return view('livewire.add-candidat');
-    }
-
-    public function updatedType_id($value)
-    {
-        $this->showInput = ($value != 1);
     }
 
     public function submitForm()
