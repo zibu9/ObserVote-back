@@ -7,7 +7,7 @@
         <div class="card-body row">
             <div class="form-group col-md-4">
                 <label>Type</label>
-                <select wire:model.live="type_id" class="form-control">
+                <select wire:model.live="typeId" class="form-control">
                     @foreach ($types as $type)
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
@@ -37,20 +37,27 @@
                     <option value="Autre">Autre</option>
                 </select>
             </div>
-            <div class="form-group col-md-4" wire:ignore.live  id="{{ $selectId }}">
+            @if ($typeId != 1)
+            <div class="form-group col-md-4">
                 <label>Province</label>
-                <select wire:model="province" class="form-control select2">
-                    <option value="" selected="selected">Choisir Province</option>
+                <select wire:model.live="province" class="form-control">
+                    <option value="">Choisir Province</option>
                     @foreach ($provinces as $province)
                     <option value="{{ $province->id }}">{{ $province->titre }}</option>
                     @endforeach
                 </select>
             </div>
-            @if ($type_id != 1)
-                <div class="form-group col-md-4">
-                    <label for="name">Circonscription</label>
-                    <input wire:model.live="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
-                </div>
+            @endif
+            @if ($showCir == true)
+            <div class="form-group col-md-4">
+                <label>Circonscription</label>
+                <select wire:model.live="circonscription" class="form-control">
+                    <option value="">Choisir Circonscription</option>
+                    @foreach ($circonscriptions as $circonscription)
+                    <option value="{{ $circonscription->id }}">{{ $circonscription->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             @endif
             <div class="form-group col-md-4">
                 <label for="exampleInputEmail1">Email</label>

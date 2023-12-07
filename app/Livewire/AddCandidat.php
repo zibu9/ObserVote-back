@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class AddCandidat extends Component
 {
     public $types;
-    public $type_id;
+    public $typeId;
     public $name;
     public $regroupement;
     public $parti;
@@ -24,17 +24,15 @@ class AddCandidat extends Component
     public $password;
     public $provinces;
     public $circonscriptions;
-    public $selectProvince = NULL;
-    public $selectCirconscription = NULL;
-    public $selectId;
+    public $showCir=false;
 
     public function mount($types, $provinces)
     {
         $this->types = $types;
-        $this->type_id = $types[0]->id; // Sélectionnez le premier type par défaut
+        $this->typeId = $types[0]->id; // Sélectionnez le premier type par défaut
         $this->provinces = $provinces;
-        $this->circonscriptions = collect();
-        $this->selectId = 'select2_' . uniqid();
+        $this->circonscriptions;
+        $this->province = NULL;
     }
 
     public function render()
@@ -42,17 +40,19 @@ class AddCandidat extends Component
         return view('livewire.add-candidat');
     }
 
-    public function updatedSelectProvince($pays)
+    public function updatedProvince($pays)
     {
         if(!empty($pays)){
             $province = Province::find($pays);
-            $this->circonscriptions = $province->circonscriptions();
+            $this->circonscriptions = $province->circonscriptions;
+            $this->showCir = true;
         }
+
+
     }
 
     public function submitForm()
     {
-        dd($this->type_id);
         $this->validate([
             'name' => 'required|string',
             'parti' => 'required|string',
@@ -76,15 +76,13 @@ class AddCandidat extends Component
             'email' => $this->email,
             'phone' => $this->phone,
             'password' => $password,
-            'type_id' => (int) $this->type_id,
+            'type_id' => (int) $this->typeId,
         ]);
 
         $candidat->update([
             'password' => Hash::make($password),
         ]);
 
-        session()->flash('success', 'Candidat créé avec succès');
-
-        return redirect()->route('candidat.index');
+        return redirect()->route('candidat.index')->with('success', 'Candidat créé avec succès');;
     }
 }
