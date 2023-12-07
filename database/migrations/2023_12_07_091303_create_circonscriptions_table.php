@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('circonscriptions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('province_id')->constrained()->onUpdate('cascade');
+            $table->foreignId('province_id')->constrained()->onUpdate('cascade');
             $table->timestamps();
         });
     }
