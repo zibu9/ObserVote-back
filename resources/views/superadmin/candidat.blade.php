@@ -33,75 +33,7 @@
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">Ajouter Candidat</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                    <form role="form" action="{{ route('candidat.store') }}" method="POST">
-                        @csrf
-                      <div class="card-body">
-                        <div class="form-group">
-                            <label>Type</label>
-                            <select name="type_id" class="form-control">
-                                @foreach ($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Noms</label>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Enter nom complet">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Regroupement</label>
-                            <input name="regroupement" type="text" class="form-control" placeholder="Enter le regroupement politique">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Parti Politique</label>
-                            <input name="parti" type="text" class="form-control" placeholder="Enter le parti politique">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Candidat</label>
-                            <input name="candidat" type="text" class="form-control" placeholder="Enter le candidat qu'il soutient">
-                        </div>
-                        <div class="form-group">
-                            <label>Genre</label>
-                            <select name="sexe" class="form-control">
-                              <option value="Masculin">Masculin</option>
-                              <option value="Feminin">Feminin</option>
-                              <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Province</label>
-                            <input name="province" type="text" class="form-control" placeholder="Enter la province">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Circonscription</label>
-                            <input name="circonscription" type="text" class="form-control" placeholder="Enter la circonscription">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email</label>
-                          <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Télephone</label>
-                            <input name="phone" type="text" class="form-control" placeholder="Ex : 82XXXXXXX">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                      </div>
-                      <!-- /.card-body -->
-
-                      <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </div>
-                    </form>
-                  </div>
+                <livewire:add-candidat :types="$types" />
             </div>
             <!-- /.col-->
         </div>
