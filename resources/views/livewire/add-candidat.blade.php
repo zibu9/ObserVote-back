@@ -32,7 +32,7 @@
             <div class="form-group col-md-4">
                 <label>Genre</label>
                 <select wire:model.live="sexe" class="form-control">
-                    <option value="Masculin">Masculin</option>
+                    <option value="Masculin" selected>Masculin</option>
                     <option value="Feminin">Feminin</option>
                     <option value="Autre">Autre</option>
                 </select>

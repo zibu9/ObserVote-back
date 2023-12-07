@@ -16,7 +16,7 @@ class AddCandidat extends Component
     public $regroupement;
     public $parti;
     public $candidat;
-    public $sexe;
+    public $sexe = '';
     public $province;
     public $circonscription;
     public $email;
@@ -33,6 +33,7 @@ class AddCandidat extends Component
         $this->provinces = $provinces;
         $this->circonscriptions;
         $this->province = NULL;
+        $this->sexe = "Masculin";
     }
 
     public function render()
@@ -47,21 +48,21 @@ class AddCandidat extends Component
             $this->circonscriptions = $province->circonscriptions;
             $this->showCir = true;
         }
-
-
     }
 
     public function submitForm()
     {
-        $this->validate([
-            'name' => 'required|string',
-            'parti' => 'required|string',
-            'candidat' => 'required|string',
-            'sexe' => 'required|string',
-            'email' => 'required|email|unique:candidats,email',
-            'phone' => 'unique:candidats,phone',
-            'password' => 'required|string|min:8',
-        ]);
+        // $this->validate([
+        //     'name' => 'required|string',
+        //     'parti' => 'required|string',
+        //     'candidat' => 'required|string',
+        //     'sexe' => 'required|string',
+        //     'email' => 'required|email|unique:candidats,email',
+        //     'phone' => 'unique:candidats,phone',
+        //     'password' => 'required|string|min:8',
+        // ]);
+
+        dd($this->sexe);
 
         $password = $this->password;
 
