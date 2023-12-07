@@ -117,7 +117,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-                {{ $results->links() }}
+                {{ $candidats->links() }}
               </div>
             </div>
         </div>
