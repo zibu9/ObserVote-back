@@ -37,7 +37,9 @@
                     <div class="card-header">
                       <h3 class="card-title">Ajouter Resultat</h3>
                     </div>
-                    <livewire:send-result />
+                    <livewire:send-result
+                        :provinces="$provinces"
+                    />
                   </div>
             </div>
             <!-- /.col-->

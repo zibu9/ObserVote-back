@@ -7,12 +7,24 @@
         @if($step === 1 )
             <div class="form-group">
                 <label for="name">Province</label>
-                <input wire:model.live="province" type="text" class="form-control">
+                <select wire:model.live="province" class="form-control">
+                    <option value="">Choisir Province</option>
+                    @foreach ($provinces as $province)
+                    <option value="{{ $province->id }}">{{ $province->titre }}</option>
+                    @endforeach
+                </select>
             </div>
+            @if ($showCir == true)
             <div class="form-group">
                 <label for="name">Circonscription</label>
-                <input wire:model.live="circonscription" type="text" class="form-control">
+                <select wire:model.live="circonscription" class="form-control">
+                    <option value="">Choisir Circonscription</option>
+                    @foreach ($circonscriptions as $circonscription)
+                    <option value="{{ $circonscription->id }}">{{ $circonscription->name }}</option>
+                    @endforeach
+                </select>
             </div>
+            @endif
             <div class="form-group">
                 <label for="name">Nom Centre de vote</label>
                 <input wire:model.live="centre" type="text" class="form-control">

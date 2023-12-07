@@ -31,7 +31,7 @@ class AddCandidat extends Component
         $this->types = $types;
         $this->typeId = $types[0]->id; // Sélectionnez le premier type par défaut
         $this->provinces = $provinces;
-        $this->circonscriptions;
+        $this->circonscriptions = collect();
         $this->province = NULL;
         $this->sexe = "Masculin";
     }

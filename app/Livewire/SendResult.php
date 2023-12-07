@@ -2,16 +2,19 @@
 
 namespace App\Livewire;
 
-use App\Models\Observer;
 use App\Models\Result;
 use Livewire\Component;
+use App\Models\Observer;
+use App\Models\Province;
 use Illuminate\Support\Facades\Auth;
 
 class SendResult extends Component
 {
     public $step = 1;
     public $province = '';
+    public $provinces;
     public $circonscription = '';
+    public $circonscriptions;
     public $centre = '';
     public $centreCode = '';
     public $bureau = '';
@@ -19,6 +22,22 @@ class SendResult extends Component
     public $votant = '';
     public $nosVoix = '';
     public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix'];
+    public $showCir=false;
+
+    public function mount($provinces)
+    {
+        $this->provinces = $provinces;
+        $this->circonscriptions = collect();
+    }
+
+    public function updatedProvince($pays)
+    {
+        if(!empty($pays)){
+            $province = Province::find($pays);
+            $this->circonscriptions = $province->circonscriptions;
+            $this->showCir = true;
+        }
+    }
 
     public function render()
     {
