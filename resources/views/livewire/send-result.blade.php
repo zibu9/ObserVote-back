@@ -1,6 +1,6 @@
 <div>
     <div class="card-body">
-        <p for="name" class="text-danger font-weight-bold">!! Assurez vous de bien selectionner la province et circonscription car c'est pas modifiable après.</p>
+        <p for="name" class="text-danger font-weight-bold text-center">!! Assurez vous de bien selectionner la province et circonscription car c'est pas modifiable après.</p>
         <div class="form-group">
             <label for="name">Candidat</label>
             <input type="text" disabled class="form-control" value="{{ auth()->user()->candidat->candidat }}">
