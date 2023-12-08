@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('results', function (Blueprint $table) {
-            $table->foreignId('circonscription_id')->constrained()->onUpdate('cascade')->default(2);
+            $table->foreignId('circonscription_id')->constrained()->onUpdate('cascade');
         });
     }
 
