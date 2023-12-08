@@ -89,7 +89,7 @@ class SendResult extends Component
                 break;
             // case 7:
             //     $this->validate(['bulletinRestant' => 'required']);
-                break;
+            //    break;
         }
     }
 
