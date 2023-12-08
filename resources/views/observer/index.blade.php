@@ -64,7 +64,7 @@
                           <th>Votants initial</th>
                           <th>Votants</th>
                           <th>Nos Voix</th>
-                          <th>Bulletins restant</th>
+                          <th>Restant</th>
                           <th>Candidat</th>
                           <th>Actions</th>
                         </tr>
@@ -79,8 +79,8 @@
                         @endphp
                         <tr>
                           <td>{{ $i }}</td>
-                          <td>{{ $result->province }}</td>
-                          <td>{{ $result->circonscripton }}</td>
+                          <td>{{ $result->circonscripton->province->titre }}</td>
+                          <td>{{ $result->circonscripton->name }}</td>
                           <td>{{ $result->centre }}</td>
                           <td>{{ $result->centreCode }}</td>
                           <td>{{ $result->bureau }}</td>
@@ -88,7 +88,7 @@
                           <td>{{ $result->votant }}</td>
                           <td>{{ $result->nosVoix }}</td>
                           <td>{{ $result->bulletinRestant }}</td>
-                          <td>{{ $result->observer->candidat->candidat }}</td>
+                          <td>{{ Str::limit($result->observer->candidat->candidat, 15, '...') }}</td>
 
                           <td class="">
                             <button href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default{{ $result->id }}" {{ $disableButton ? 'disabled' : '' }}>

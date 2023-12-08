@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Circonscription;
 use App\Models\Result;
 use Livewire\Component;
 use App\Models\Observer;
@@ -107,8 +108,8 @@ class SendResult extends Component
                         ->orWhere('phone', Auth::user()->phone)
                         ->first();
         Result::create([
-            'province' => $this->province,
-            'circonscription' => $this->circonscription,
+            'province' => Province::find((int)$this->province)->titre,
+            'circonscription' => Circonscription::find((int)$this->circonscription)->name,
             'circonscription_id' => (int)$this->circonscription,
             'centre' => $this->centre,
             'centreCode' => $this->centreCode,

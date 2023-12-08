@@ -18,9 +18,6 @@ class ObserverController extends Controller
         $results = $observer->results()->with('circonscripton')->paginate(10);
         $provinces = Province::all();
         $circonscriptions = Circonscription::all();
-        foreach ($results as $result) {
-            dd($result->circonscripton);
-        }
         return view('observer.index', compact('results', 'provinces', 'circonscriptions'));
     }
 
