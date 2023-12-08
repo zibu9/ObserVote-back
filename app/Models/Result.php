@@ -13,6 +13,7 @@ class Result extends Model
     protected $fillable = [
         'province',
         'circonscription',
+        'circonscription_id',
         'centre',
         'centreCode',
         'bureau',

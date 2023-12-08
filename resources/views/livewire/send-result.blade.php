@@ -69,7 +69,7 @@
     </div>
     <div class="card-footer">
         @if($step > 1)
-            <button wire:click.live="previousStep" class="btn btn-sm btn-primary">Précédent</button>
+            <button wire:click.live="previousStep" class="btn btn-sm btn-waring">Précédent</button>
         @endif
         @php
             ($votantInitial == $votant) ? $n=5 : $n=6;

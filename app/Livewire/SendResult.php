@@ -23,6 +23,7 @@ class SendResult extends Component
     public $nosVoix = '';
     public $vars = ['centre', 'centreCode', 'bureau', 'votantInitial', 'votant', 'nosVoix'];
     public $showCir=false;
+    public $errors = false;
 
     public function mount($provinces)
     {
@@ -97,6 +98,7 @@ class SendResult extends Component
         $this->validateStep();
         $this->saveData();
         return redirect()->route('result.index')->with('success', 'resultats soumis avec success');
+
     }
 
     private function saveData()
@@ -107,6 +109,7 @@ class SendResult extends Component
         Result::create([
             'province' => $this->province,
             'circonscription' => $this->circonscription,
+            'circonscription_id' => (int)$this->circonscription,
             'centre' => $this->centre,
             'centreCode' => $this->centreCode,
             'bureau' => $this->bureau,
