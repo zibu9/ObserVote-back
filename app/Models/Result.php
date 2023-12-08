@@ -34,4 +34,9 @@ class Result extends Model
     {
         return $this->belongsTo(Candidat::class);
     }
+
+    public function circonscripton()
+    {
+        return $this->belongsTo(Circonscription::class, 'circonscription_id');
+    }
 }

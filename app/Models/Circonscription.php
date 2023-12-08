@@ -18,4 +18,9 @@ class Circonscription extends Model
     {
         return $this->belongsTo(Province::class);
     }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 }

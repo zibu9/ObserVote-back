@@ -80,7 +80,7 @@
                         <tr>
                           <td>{{ $i }}</td>
                           <td>{{ $result->province }}</td>
-                          <td>{{ $result->circonscription }}</td>
+                          <td>{{ $result->circonscripton }}</td>
                           <td>{{ $result->centre }}</td>
                           <td>{{ $result->centreCode }}</td>
                           <td>{{ $result->bureau }}</td>
