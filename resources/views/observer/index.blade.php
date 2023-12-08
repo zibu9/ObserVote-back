@@ -114,7 +114,10 @@
               </div>
         </div>
         @foreach ($results as $result)
-            <livewire:update-result :result="$result" />
+            <livewire:update-result
+                :result="$result"
+                :provinces="$provinces"
+                :circonscriptions="$circonscriptions" />
         @endforeach
     </section>
 @endsection

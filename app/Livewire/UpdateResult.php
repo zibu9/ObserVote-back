@@ -4,13 +4,16 @@ namespace App\Livewire;
 
 use App\Models\Result;
 use Livewire\Component;
+use App\Models\Province;
 use Illuminate\Support\Facades\Gate;
 
 class UpdateResult extends Component
 {
     public $result;
     public $circonscription;
-    public $province;
+    public $circonscriptions;
+    public $province='';
+    public $provinces;
     public $centre;
     public $centreCode;
     public $bureau;
@@ -26,10 +29,11 @@ class UpdateResult extends Component
         return view('livewire.update-result');
     }
 
-    public function mount()
+    public function mount($provinces)
     {
         $this->province = $this->result->province;
-        $this->circonscription = $this->result->circonscription;
+        $this->provinces = $provinces;
+        $this->circonscription = $this->result->circonscripton->name;
         $this->centre = $this->result->centre;
         $this->centreCode = $this->result->centreCode;
         $this->bureau = $this->result->bureau;
@@ -39,6 +43,14 @@ class UpdateResult extends Component
         $this->bulletinRestant = $this->result->bulletinRestant;
         $this->id = $this->result->id;
     }
+
+    // public function updatedProvince($pays)
+    // {
+    //     if(!empty($pays)){
+    //         $province = Province::find($pays);
+    //         $this->circonscriptions = $province->circonscriptions;
+    //     }
+    // }
 
     public function update()
     {

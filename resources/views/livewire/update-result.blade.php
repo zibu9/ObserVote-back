@@ -16,12 +16,27 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Province</label>
-                    <input value="{{ $province }}" wire:model="centre" type="text" class="form-control">
+                    <input disabled value="{{ $province }}" wire:model="province" type="text" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="name">Circonscription</label>
-                    <input value="{{ $circonscription }}" wire:model="centre" type="text" class="form-control">
+                    <input disabled value="{{ $circonscription }}" wire:model="circonscription" type="text" class="form-control">
                 </div>
+                   {{-- <div class="form-group col-md-6">
+                    <label for="name">Province</label>
+                    <select wire:model.live="province" name="province" class="form-control">
+                        @foreach ($provinces as $p)
+                        <option {{ ($p->id == $result->circonscripton->province->id) ? 'seleceted="selected"' : "" }} value="{{ $p->id }}">{{ $p->titre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="name">Circonscription</label>
+                    <select wire:model.live="circonscription" class="form-control">
+                        @foreach ($circonscriptions as $circonscription)
+                        <option {{ ($circonscription->id == $result->circonscripton->id) ? 'seleceted="selected"' : "" }} value="{{ $circonscription->id }}">{{ $circonscription->name }}</option>
+                        @endforeach
+                    </select>--}}
                 <div class="form-group col-md-6">
                     <label for="name">Nom Centre de vote</label>
                     <input value="{{ $centre }}" wire:model="centre" type="text" class="form-control">
