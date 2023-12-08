@@ -126,7 +126,7 @@
                           <th>Votants initial</th>
                           <th>Votants</th>
                           <th>Nos Voix</th>
-                          <th>Bulletins restant</th>
+                          <th>Restant</th>
                           <th>Observateur</th>
                         </tr>
                       </thead>
@@ -149,7 +149,7 @@
                           <td>{{ $result->votant }}</td>
                           <td>{{ $result->nosVoix }}</td>
                           <td>{{ $result->bulletinRestant }}</td>
-                          <td>{{ $result->observer->name }}</td>
+                          <td>{{ Str::limit($result->observer->name, 10, '...') }}</td>
                         </tr>
                         @php
                             $i++;

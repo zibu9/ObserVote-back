@@ -76,7 +76,7 @@
                           <th>Votants initial</th>
                           <th>Votants</th>
                           <th>Nos Voix</th>
-                          <th>Bulletins restant</th>
+                          <th>Restant</th>
                           <th>Observateur</th>
                         </tr>
                       </thead>
