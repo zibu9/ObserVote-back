@@ -15,7 +15,7 @@ class ObserverController extends Controller
         $observer = Observer::where('email', Auth::user()->email)
                         ->orWhere('phone', Auth::user()->phone)
                         ->first();
-        $results = $observer->results;
+        $results = $observer->results()->paginate(10);
         $provinces = Province::all();
         $circonscriptions = Circonscription::all();
         return view('observer.index', compact('results', 'provinces', 'circonscriptions'));

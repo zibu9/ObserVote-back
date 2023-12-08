@@ -51,7 +51,7 @@
                     </div>
                   </div>
                   <!-- /.card-header -->
-                  <div class="card-body table-responsive p-0" style="height: 400px;">
+                  <div class="card-body table-responsive p-0">
                     <table class="table table-head-fixed text-nowrap">
                       <thead>
                         <tr>
@@ -106,6 +106,9 @@
                     </table>
                   </div>
                   <!-- /.card-body -->
+                  <div class="card-footer clearfix">
+                    {{ $results->links() }}
+                  </div>
                 </div>
                 <!-- /.card -->
               </div>
