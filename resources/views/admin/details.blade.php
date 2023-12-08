@@ -57,11 +57,28 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body table-responsive p-0">
-                    <div class="input-group input-group-sm p-2">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    <div class="container-fluid">
+                        <div class="row p-1">
+                            <div class="col-md-4">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Mois</span>
+                                    </div>
+                                        <select class="custom-select" name="mois">
+                                        <option>Janvier</option>
+                                        <option>Fevrier</option>
+                                        <option>Mars</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group input-group-sm">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <table class="table table-head-fixed text-nowrap">

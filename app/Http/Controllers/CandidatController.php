@@ -105,6 +105,10 @@ class CandidatController extends Controller
 
     public function details()
     {
+        $candidat = Candidat::where('email', Auth::user()->email)
+            ->orWhere('phone', Auth::user()->phone)
+            ->first();
+
         return view('admin.details');
     }
 

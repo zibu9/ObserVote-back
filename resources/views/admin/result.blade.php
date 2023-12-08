@@ -142,7 +142,7 @@
                           <td>{{ $i }}</td>
                           <td>{{ $result->circonscripton->province->titre }}</td>
                           <td>{{ $result->circonscripton->name }}</td>
-                          <td>{{ $result->centre }}</td>
+                          <td>{{ Str::limit($result->centre, 12, '...') }}</td>
                           <td>{{ $result->centreCode }}</td>
                           <td>{{ $result->bureau }}</td>
                           <td>{{ $result->votantInitial }}</td>
