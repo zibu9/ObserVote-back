@@ -84,7 +84,7 @@ class CandidatController extends Controller
         $candidat = Candidat::where('email', Auth::user()->email)
                 ->orWhere('phone', Auth::user()->phone)
                 ->first();
-        $results = $candidat->results()->paginate(10);
+        $results = $candidat->results()->with('circonscripton')->paginate(10);
 
         $res = Result::where('candidat_id', $candidat->id);
         $votantInitial = $res->sum('votantInitial');
