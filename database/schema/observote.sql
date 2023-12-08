@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 08 déc. 2023 à 01:49
+-- Généré le : ven. 08 déc. 2023 à 13:56
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -354,7 +354,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2023_12_04_171134_add_candidat_id_to_results_table', 9),
 (17, '2023_12_06_120340_add_to_colomn_to_results_table', 10),
 (19, '2023_12_07_091245_create_provinces_table', 11),
-(20, '2023_12_07_091303_create_circonscriptions_table', 11);
+(20, '2023_12_07_091303_create_circonscriptions_table', 11),
+(21, '2023_12_08_085919_add_circonscription_id_to_results_table', 12);
 
 -- --------------------------------------------------------
 
@@ -483,24 +484,27 @@ CREATE TABLE `results` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `candidat_id` bigint(20) UNSIGNED NOT NULL,
   `province` varchar(255) DEFAULT NULL,
-  `circonscription` varchar(255) DEFAULT NULL
+  `circonscription` varchar(255) DEFAULT NULL,
+  `circonscription_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `results`
 --
 
-INSERT INTO `results` (`id`, `centre`, `centreCode`, `bureau`, `votantInitial`, `votant`, `nosVoix`, `bulletinRestant`, `observer_id`, `created_at`, `updated_at`, `candidat_id`, `province`, `circonscription`) VALUES
-(3, 'Institut Mobikisi', '1007081-1', '1007081-1-B', 1000, 800, 250, 200, 1, '2023-12-04 16:41:41', '2023-12-05 15:42:18', 1, 'Kinshasa', 'Lukunga'),
-(5, 'Zomany', '1007080-1', '1007080-1-A', 500, 496, 196, 4, 5, '2023-12-04 16:52:37', '2023-12-04 16:52:37', 1, 'Kinshasa', 'Lukunga'),
-(7, 'Sainte Anne', '1007083-1', '1007083-1-L', 900, 801, 700, 99, 2, '2023-12-05 12:06:10', '2023-12-05 12:06:10', 1, 'Kinshasa', 'Lukunga'),
-(8, 'Test', '1007081-5', '1007081-5-A', 500, 499, 100, 1, 6, '2023-12-05 16:30:48', '2023-12-05 16:30:48', 3, 'Kinshasa', 'Lukunga'),
-(9, 'Gshshh', '1552626', '515151h', 1000, 1000, 200, 0, 6, '2023-12-05 16:39:07', '2023-12-05 16:39:07', 3, 'Kinshasa', 'Lukunga'),
-(10, 'Test', 'Test1', 'Test1-1', 900, 800, 564, 100, 7, '2023-12-05 17:04:44', '2023-12-05 17:04:44', 2, 'Kinshasa', 'Lukunga'),
-(11, '12334', '2e3444', '453344', 1000, 950, 400, 50, 1, '2023-12-06 07:16:41', '2023-12-06 07:53:08', 1, 'Kinshasa', 'Lukunga'),
-(12, 'Limete', '45631-2', '4626278-2', 2500, 2000, 750, 500, 8, '2023-12-06 07:50:35', '2023-12-06 08:12:20', 1, 'Kinshasa', 'Lukunga'),
-(13, '133444', '23e4', '555633', 800, 798, 600, 2, 1, '2023-12-06 10:53:34', '2023-12-06 10:53:34', 1, 'Kinshasa', 'Lukunga'),
-(14, 'Mokengeli ', '422999', '42999-a', 3500, 3000, 2000, 500, 8, '2023-12-06 11:45:07', '2023-12-06 11:45:07', 1, 'Kinshasa ', 'Mont-amba ');
+INSERT INTO `results` (`id`, `centre`, `centreCode`, `bureau`, `votantInitial`, `votant`, `nosVoix`, `bulletinRestant`, `observer_id`, `created_at`, `updated_at`, `candidat_id`, `province`, `circonscription`, `circonscription_id`) VALUES
+(3, 'Institut Mobikisi', '1007081-1', '1007081-1-B', 1000, 800, 250, 200, 1, '2023-12-04 16:41:41', '2023-12-04 16:41:41', 1, 'Kinshasa', 'Lukunga', 2),
+(5, 'Zomany', '1007080-1', '1007080-1-A', 500, 496, 196, 4, 5, '2023-12-04 16:52:37', '2023-12-04 16:52:37', 1, 'Kinshasa', 'Lukunga', 2),
+(7, 'Sainte Anne', '1007083-1', '1007083-1-L', 900, 801, 700, 99, 2, '2023-12-05 12:06:10', '2023-12-05 12:06:10', 1, 'Kinshasa', 'Lukunga', 2),
+(8, 'Test', '1007081-5', '1007081-5-A', 500, 499, 100, 1, 6, '2023-12-05 16:30:48', '2023-12-05 16:30:48', 3, 'Kinshasa', 'Lukunga', 2),
+(9, 'Gshshh', '1552626', '515151h', 1000, 1000, 200, 0, 6, '2023-12-05 16:39:07', '2023-12-05 16:39:07', 3, 'Kinshasa', 'Lukunga', 2),
+(10, 'Test', 'Test1', 'Test1-1', 900, 800, 564, 100, 7, '2023-12-05 17:04:44', '2023-12-05 17:04:44', 2, 'Kinshasa', 'Lukunga', 2),
+(11, '12334', '2e3444', '453344', 1000, 950, 400, 50, 1, '2023-12-06 07:16:41', '2023-12-06 07:53:08', 1, 'Kinshasa', 'Lukunga', 2),
+(12, 'Limete', '45631-2', '4626278-2', 2500, 2000, 750, 500, 8, '2023-12-06 07:50:35', '2023-12-06 08:12:20', 1, 'Kinshasa', 'Lukunga', 2),
+(13, '133444', '23e4', '555633', 800, 798, 600, 2, 1, '2023-12-06 10:53:34', '2023-12-06 10:53:34', 1, 'Kinshasa', 'Lukunga', 2),
+(14, 'Mokengeli ', '422999', '42999-a', 3500, 3000, 2000, 500, 8, '2023-12-06 11:45:07', '2023-12-06 11:45:07', 1, 'Kinshasa ', 'Mont-amba ', 2),
+(15, 'testmise', '1236547', '111245', 900, 600, 451, 300, 1, '2023-12-08 08:28:00', '2023-12-08 11:33:10', 1, '1', '3', 3),
+(17, 'aiaiai', '125425', '55555d-d', 500, 500, 200, 0, 1, '2023-12-08 11:39:10', '2023-12-08 11:39:10', 1, 'Kasai-Oriental', 'Lupatapata', 143);
 
 -- --------------------------------------------------------
 
@@ -656,7 +660,8 @@ ALTER TABLE `provinces`
 ALTER TABLE `results`
   ADD PRIMARY KEY (`id`),
   ADD KEY `results_observer_id_foreign` (`observer_id`),
-  ADD KEY `results_candidat_id_foreign` (`candidat_id`);
+  ADD KEY `results_candidat_id_foreign` (`candidat_id`),
+  ADD KEY `results_circonscription_id_foreign` (`circonscription_id`);
 
 --
 -- Index pour la table `roles`
@@ -705,7 +710,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `observers`
@@ -729,7 +734,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT pour la table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
@@ -776,6 +781,7 @@ ALTER TABLE `observers`
 --
 ALTER TABLE `results`
   ADD CONSTRAINT `results_candidat_id_foreign` FOREIGN KEY (`candidat_id`) REFERENCES `candidats` (`id`),
+  ADD CONSTRAINT `results_circonscription_id_foreign` FOREIGN KEY (`circonscription_id`) REFERENCES `circonscriptions` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `results_observer_id_foreign` FOREIGN KEY (`observer_id`) REFERENCES `observers` (`id`);
 
 --
