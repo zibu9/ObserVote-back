@@ -110,24 +110,20 @@ class CandidatController extends Controller
             ->first();
 
         $results = $candidat->results()
-        ->with('circonscripton.province') // Charger la relation avec la province
-        ->get();
+            ->with('circonscripton.province')
+            ->get();
 
         $sums = [];
 
         foreach ($results as $result) {
             $province = $result->circonscripton->province->titre;
 
-            // Accéder aux champs de province comme nécessaire
             $provinceName = $result->circonscripton->province->titre;
-
-            // Ajouter d'autres champs comme nécessaire
             $sums[$province] = [
                 'votantInitial' => $result->votantInitial,
                 'votant' => $result->votant,
                 'nosVoix' => $result->nosVoix,
                 'bulletinRestant' => $result->bulletinRestant,
-                // Ajoutez d'autres champs ici
             ];
         }
 
