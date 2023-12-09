@@ -117,8 +117,9 @@ class CandidatController extends Controller
 
         $sums = [];
 
-        $i = 1;
+
         if (Auth::user()->candidat->type->id == 1) {
+            $i = 1;
             foreach ($results as $result) {
                 $province = $result->circonscripton->province->titre;
 
@@ -146,17 +147,20 @@ class CandidatController extends Controller
         }
 
         if (Auth::user()->candidat->type->id != 1) {
+            $i = 1;
             foreach ($results as $result) {
                 $circonscription = $result->circonscripton->name;
 
                 if (!isset($sums[$circonscription])) {
                     $sums[$circonscription] = [
+                        'i' => $i,
                         'votantInitial' => 0,
                         'votant' => 0,
                         'nosVoix' => 0,
                         'bulletinRestant' => 0,
                         'Pourcentage' => 0,
                     ];
+                    $i++;
                 }
 
                 $sums[$circonscription]['votantInitial'] += $result->votantInitial;
@@ -168,7 +172,6 @@ class CandidatController extends Controller
                 $totalVotant = $sums[$circonscription]['votant'];
                 $totalNosVoix = $sums[$circonscription]['nosVoix'];
                 $sums[$circonscription]['Pourcentage'] = ($totalVotant > 0) ? ($totalNosVoix / $totalVotant) * 100 : 0;
-                $i++;
             }
         }
 

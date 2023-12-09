@@ -134,6 +134,7 @@
                         @php
                             $i = 1;
                         @endphp
+                        @foreach ($results as $result)
                         <tr>
                           <td>{{ $i }}</td>
                           <td>{{ $result->circonscripton->province->titre }}</td>
