@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Result;
 use App\Models\Candidat;
 use App\Models\Observer;
-use App\Models\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CandidatController extends Controller
 {
@@ -182,6 +183,8 @@ class CandidatController extends Controller
             'percent' => round($percent, 2),
         ];
 
+        $sums = $this->paginateResults($sums);
+
         return view('admin.details', compact('results', 'sums', 'total'));
     }
 
@@ -189,4 +192,21 @@ class CandidatController extends Controller
     {
         return view('admin.change-password');
     }
+
+    private function paginateResults($results, $perPage = 1)
+    {
+        $page = request('page', 1);
+        $offset = ($page - 1) * $perPage;
+
+        $paginatedResults = array_slice($results, $offset, $perPage);
+
+        return new LengthAwarePaginator(
+            $paginatedResults,
+            count($results),
+            $perPage,
+            $page,
+            ['path' => url()->current()]
+        );
+    }
+
 }

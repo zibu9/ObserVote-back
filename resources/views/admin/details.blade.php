@@ -131,8 +131,8 @@
                     </table>
                   </div>
                   <!-- /.card-body -->
-                  <div class="card-footer">
-
+                  <div class="card-footer clearfix">
+                    {{ $sums->links() }}
                   </div>
                 </div>
                 <!-- /.card -->
