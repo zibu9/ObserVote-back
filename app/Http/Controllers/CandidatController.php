@@ -115,8 +115,25 @@ class CandidatController extends Controller
 
         $sums = [];
 
+        foreach ($results as $result) {
+            $province = $result->circonscripton->province->titre;
 
-        return view('admin.details');
+            // Accéder aux champs de province comme nécessaire
+            $provinceName = $result->circonscripton->province->titre;
+
+            // Ajouter d'autres champs comme nécessaire
+            $sums[$province] = [
+                'votantInitial' => $result->votantInitial,
+                'votant' => $result->votant,
+                'nosVoix' => $result->nosVoix,
+                'bulletinRestant' => $result->bulletinRestant,
+                // Ajoutez d'autres champs ici
+            ];
+        }
+
+        dd($sums);
+
+        return view('admin.details', compact('results'));
     }
 
     public function showChangePasswordForm()
