@@ -115,16 +115,33 @@ class CandidatController extends Controller
 
         $sums = [];
 
-        foreach ($results as $result) {
-            $province = $result->circonscripton->province->titre;
+        if(Auth::user()->candidat->type->id == 1)
+        {
+            foreach ($results as $result) {
+                $province = $result->circonscripton->province->titre;
 
-            $provinceName = $result->circonscripton->province->titre;
-            $sums[$province] = [
-                'votantInitial' => $result->votantInitial,
-                'votant' => $result->votant,
-                'nosVoix' => $result->nosVoix,
-                'bulletinRestant' => $result->bulletinRestant,
-            ];
+                $provinceName = $result->circonscripton->province->titre;
+                $sums[$province] = [
+                    'votantInitial' => $result->votantInitial,
+                    'votant' => $result->votant,
+                    'nosVoix' => $result->nosVoix,
+                    'bulletinRestant' => $result->bulletinRestant,
+                ];
+            }
+        }
+
+        if(Auth::user()->candidat->type->id == 2)
+        {
+            foreach ($results as $result)
+            {
+                $circonscription = $result->circonscripton->name;
+                $sums[$circonscription] = [
+                    'votantInitial' => $result->votantInitial,
+                    'votant' => $result->votant,
+                    'nosVoix' => $result->nosVoix,
+                    'bulletinRestant' => $result->bulletinRestant,
+                ];
+            }
         }
 
         dd($sums);

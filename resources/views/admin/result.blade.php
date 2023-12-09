@@ -46,7 +46,7 @@
                 <div class="icon">
                     <i class="fas fa-vote-yea"></i>
                 </div>
-                <a href="#" class="small-box-footer">Details <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.details') }}" class="small-box-footer">Details <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -75,7 +75,7 @@
                 <div class="icon">
                     <i class="fas fa-vote-yea"></i>
                 </div>
-                <a href="#" class="small-box-footer">Details  <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.details') }}" class="small-box-footer">Details  <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -90,7 +90,7 @@
                 <div class="icon">
                     <i class="fas fa-vote-yea"></i>
                 </div>
-                <a href="#" class="small-box-footer">Details  <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.details') }}" class="small-box-footer">Details  <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
