@@ -103,7 +103,7 @@ class CandidatController extends Controller
         return view('admin.result', compact('results', 'total'));
     }
 
-    public function details_old()
+    public function details2()
     {
         $candidat = Candidat::where('email', Auth::user()->email)
             ->orWhere('phone', Auth::user()->phone)
@@ -176,6 +176,75 @@ class CandidatController extends Controller
             ->get();
 
         $sums = [];
+
+        if (Auth::user()->candidat->type->id == 1) {
+            foreach ($results as $result) {
+                $province = $result->circonscripton->province->titre;
+
+                if (!isset($sums[$province])) {
+                    $sums[$province] = [
+                        'votantInitial' => 0,
+                        'votant' => 0,
+                        'nosVoix' => 0,
+                        'bulletinRestant' => 0,
+                        'Pourcentage' => 0,
+                    ];
+                }
+
+                $sums[$province]['votantInitial'] += $result->votantInitial;
+                $sums[$province]['votant'] += $result->votant;
+                $sums[$province]['nosVoix'] += $result->nosVoix;
+                $sums[$province]['bulletinRestant'] += $result->bulletinRestant;
+
+                $totalVotant = $sums[$province]['votant'];
+                $totalNosVoix = $sums[$province]['nosVoix'];
+                $sums[$province]['Pourcentage'] = ($totalVotant > 0) ? ($totalNosVoix / $totalVotant) * 100 : 0;
+            }
+        }
+
+        if (Auth::user()->candidat->type->id != 1) {
+            foreach ($results as $result) {
+                $circonscription = $result->circonscripton->name;
+
+                if (!isset($sums[$circonscription])) {
+                    $sums[$circonscription] = [
+                        'votantInitial' => 0,
+                        'votant' => 0,
+                        'nosVoix' => 0,
+                        'bulletinRestant' => 0,
+                        'Pourcentage' => 0,
+                    ];
+                }
+
+                $sums[$circonscription]['votantInitial'] += $result->votantInitial;
+                $sums[$circonscription]['votant'] += $result->votant;
+                $sums[$circonscription]['nosVoix'] += $result->nosVoix;
+                $sums[$circonscription]['bulletinRestant'] += $result->bulletinRestant;
+
+                // Calcul du pourcentage pour cette circonscription
+                $totalVotant = $sums[$circonscription]['votant'];
+                $totalNosVoix = $sums[$circonscription]['nosVoix'];
+                $sums[$circonscription]['Pourcentage'] = ($totalVotant > 0) ? ($totalNosVoix / $totalVotant) * 100 : 0;
+            }
+        }
+
+        dd($sums);
+
+        return view('admin.details', compact('results'));
+    }
+
+
+    public function details_()
+    {
+        $candidat = Candidat::where('email', Auth::user()->email)
+            ->orWhere('phone', Auth::user()->phone)
+            ->first();
+
+        $results = $candidat->results()
+            ->with('circonscripton.province')
+            ->get();
+
+        $sums = [];
         $percentages = [];
 
         if (Auth::user()->candidat->type->id == 1) {
@@ -229,6 +298,65 @@ class CandidatController extends Controller
 
         return view('admin.details', compact('results', 'percentages'));
     }
+
+    public function details__()
+    {
+        $candidat = Candidat::where('email', Auth::user()->email)
+            ->orWhere('phone', Auth::user()->phone)
+            ->first();
+
+        $results = $candidat->results()
+            ->with('circonscripton.province')
+            ->get();
+
+        $sums = [];
+        $percentages = [];
+
+        if (Auth::user()->candidat->type->id == 1) {
+            foreach ($results as $result) {
+                $province = $result->circonscripton->province->titre;
+
+                if (!isset($sums[$province])) {
+                    $sums[$province] = [
+                        'votant' => 0,
+                        'nosVoix' => 0,
+                    ];
+                }
+
+                $sums[$province]['votant'] += $result->votant;
+                $sums[$province]['nosVoix'] += $result->nosVoix;
+            }
+        }
+
+        if (Auth::user()->candidat->type->id != 1) {
+            foreach ($results as $result) {
+                $circonscription = $result->circonscripton->name;
+                if (!isset($sums[$circonscription])) {
+                    $sums[$circonscription] = [
+                        'votant' => 0,
+                        'nosVoix' => 0,
+                    ];
+                }
+
+                $sums[$circonscription]['votant'] += $result->votant;
+                $sums[$circonscription]['nosVoix'] += $result->nosVoix;
+            }
+        }
+
+        // Calcul des pourcentages pour votant et nosVoix
+        foreach ($sums as $key => $values) {
+            $total = array_sum($values);
+            $percentages[$key] = [
+                'votant' => ($total > 0) ? ($values['votant'] / $total) * 100 : 0,
+                'nosVoix' => ($total > 0) ? ($values['nosVoix'] / $total) * 100 : 0,
+            ];
+        }
+
+        dd($sums, $percentages);
+
+        return view('admin.details', compact('results', 'percentages'));
+    }
+
 
 
     public function showChangePasswordForm()
