@@ -19,7 +19,16 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    @foreach($sums as $key => $values)
+        <h3>{{ $key }}</h3>
+        <ul>
+            <li>Votant Initial: {{ $values['votantInitial'] }}</li>
+            <li>Votant: {{ $values['votant'] }}</li>
+            <li>Nos Voix: {{ $values['nosVoix'] }}</li>
+            <li>Pourcentage: {{ $values['Pourcentage'] }}%</li>
+            <li>Bulletin Restant: {{ $values['bulletinRestant'] }}</li>
+        </ul>
+    @endforeach
     <!-- Main content -->
     <section class="content">
         @if(session()->has('success'))
@@ -86,26 +95,42 @@
                         <tr>
                           <th>#</th>
                           <th>Province</th>
-                          <th>Circonscription</th>
+                          {{-- <th>Circonscription</th>
                           <th>Centre de Vote</th>
                           <th>Code Centre</th>
-                          <th>Bureau de Vote</th>
+                          <th>Bureau de Vote</th> --}}
                           <th>Votants initial</th>
                           <th>Votants</th>
                           <th>Nos Voix</th>
                           <th>Restant</th>
-                          <th>Observateur</th>
+                          <th>Pourcentage</th>
                         </tr>
                       </thead>
                       <tbody>
-
+                        @foreach($sums as $key => $values)
+                        @php
+                            $i = 1;
+                        @endphp
+                        <tr>
+                          <td>{{ $i }}</td>
+                          <td>{{ $key }}</td>
+                          <td>{{ $values['votantInitial'] }}</td>
+                          <td>{{ $values['votant'] }}</td>
+                          <td>{{ $values['nosVoix'] }}</td>
+                          <td>{{ $values['bulletinRestant'] }}</td>
+                          <td>{{ round($values['Pourcentage'], 2) }}%</td>
+                        </tr>
+                        @php
+                            $i++;
+                        @endphp
+                        @endforeach
                         <tr class="bg-success">
                             <td>Total</td>
                             <td></td>
+                            {{-- <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            <td></td> --}}
                             <td></td>
                             <td></td>
                             <td></td>

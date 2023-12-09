@@ -134,10 +134,6 @@
                         @php
                             $i = 1;
                         @endphp
-                        @foreach ($results as $result)
-                        @php
-                            $disableButton = $result->created_at != $result->updated_at;
-                        @endphp
                         <tr>
                           <td>{{ $i }}</td>
                           <td>{{ $result->circonscripton->province->titre }}</td>

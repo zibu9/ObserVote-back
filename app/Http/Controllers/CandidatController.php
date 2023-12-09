@@ -228,7 +228,7 @@ class CandidatController extends Controller
             }
         }
 
-        return view('admin.details', compact('results'));
+        return view('admin.details', compact('results', 'sums'));
     }
 
     public function showChangePasswordForm()
