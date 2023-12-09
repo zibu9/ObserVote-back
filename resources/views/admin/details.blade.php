@@ -19,16 +19,6 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    @foreach($sums as $key => $values)
-        <h3>{{ $key }}</h3>
-        <ul>
-            <li>Votant Initial: {{ $values['votantInitial'] }}</li>
-            <li>Votant: {{ $values['votant'] }}</li>
-            <li>Nos Voix: {{ $values['nosVoix'] }}</li>
-            <li>Pourcentage: {{ $values['Pourcentage'] }}%</li>
-            <li>Bulletin Restant: {{ $values['bulletinRestant'] }}</li>
-        </ul>
-    @endforeach
     <!-- Main content -->
     <section class="content">
         @if(session()->has('success'))
@@ -124,18 +114,18 @@
                             $i++;
                         @endphp
                         @endforeach
-                        <tr class="bg-success">
+                        <tr class="bg-info">
                             <td>Total</td>
-                            <td></td>
                             {{-- <td></td>
                             <td></td>
                             <td></td>
                             <td></td> --}}
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{  $total['votantInitial'] }}</td>
+                            <td>{{ $total['votant'] }}</td>
+                            <td>{{ $total['nosVoix'] }}</td>
+                            <td>{{ $total['bulletinRestant'] }}</td>
+                            <td><b>{{ $total['percent'] }}</b>%</td>
                         </tr>
                       </tbody>
                     </table>

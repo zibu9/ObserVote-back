@@ -103,67 +103,6 @@ class CandidatController extends Controller
         return view('admin.result', compact('results', 'total'));
     }
 
-    public function details2()
-    {
-        $candidat = Candidat::where('email', Auth::user()->email)
-            ->orWhere('phone', Auth::user()->phone)
-            ->first();
-
-        $results = $candidat->results()
-            ->with('circonscripton.province')
-            ->get();
-
-        $sums = [];
-
-        if(Auth::user()->candidat->type->id == 1)
-        {
-            foreach ($results as $result) {
-                $province = $result->circonscripton->province->titre;
-
-                if (!isset($sums[$province])) {
-                    $sums[$province] = [
-                        'votantInitial' => 0,
-                        'votant' => 0,
-                        'nosVoix' => 0,
-                        'bulletinRestant' => 0,
-                    ];
-                }
-
-
-
-                $sums[$province]['votantInitial'] += $result->votantInitial;
-                $sums[$province]['votant'] += $result->votant;
-                $sums[$province]['nosVoix'] += $result->nosVoix;
-                $sums[$province]['bulletinRestant'] += $result->bulletinRestant;
-
-            }
-        }
-
-        if(Auth::user()->candidat->type->id != 1)
-        {
-            foreach ($results as $result)
-            {
-                $circonscription = $result->circonscripton->name;
-                if (!isset($sums[$circonscription])) {
-                    $sums[$circonscription] = [
-                        'votantInitial' => 0,
-                        'votant' => 0,
-                        'nosVoix' => 0,
-                        'bulletinRestant' => 0,
-                    ];
-                }
-
-                $sums[$circonscription]['votantInitial'] += $result->votantInitial;
-                $sums[$circonscription]['votant'] += $result->votant;
-                $sums[$circonscription]['nosVoix'] += $result->nosVoix;
-                $sums[$circonscription]['bulletinRestant'] += $result->bulletinRestant;
-            }
-        }
-
-        dd($sums);
-
-        return view('admin.details', compact('results'));
-    }
 
     public function details()
     {
@@ -228,7 +167,22 @@ class CandidatController extends Controller
             }
         }
 
-        return view('admin.details', compact('results', 'sums'));
+        $res = Result::where('candidat_id', $candidat->id);
+        $votantInitial = $res->sum('votantInitial');
+        $votant = $res->sum('votant');
+        $nosVoix = $res->sum('nosVoix');
+        $bulletinRestant = $res->sum('bulletinRestant');
+        $percent = ($votant > 0) ? ($nosVoix / $votant*100) : 0;
+
+        $total = [
+            'votantInitial' => $votantInitial,
+            'votant' => $votant,
+            'nosVoix' => $nosVoix,
+            'bulletinRestant' => $bulletinRestant,
+            'percent' => round($percent, 2),
+        ];
+
+        return view('admin.details', compact('results', 'sums', 'total'));
     }
 
     public function showChangePasswordForm()

@@ -162,7 +162,7 @@
                             <td>{{ $total['votant'] }}</td>
                             <td>{{ $total['nosVoix'] }}</td>
                             <td>{{ $total['bulletinRestant'] }}</td>
-                            <td></td>
+                            <td>{{ $total['percent'] }}%</td>
                         </tr>
                       </tbody>
                     </table>
