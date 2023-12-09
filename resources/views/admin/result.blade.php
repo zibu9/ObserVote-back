@@ -178,3 +178,10 @@
         </div>
     </section>
 @endsection
+@section('script')
+<script>
+    setTimeout(function(){
+        location.reload();
+    }, 45000); // 60 secondes
+</script>
+@endsection
