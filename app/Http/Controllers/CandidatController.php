@@ -109,6 +109,13 @@ class CandidatController extends Controller
             ->orWhere('phone', Auth::user()->phone)
             ->first();
 
+        $results = $candidat->results()
+        ->with('circonscripton.province') // Charger la relation avec la province
+        ->get();
+
+        $sums = [];
+
+
         return view('admin.details');
     }
 
