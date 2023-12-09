@@ -84,7 +84,7 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Province</th>
+                          <th>{{ auth()->user()->candidat->type->id == 1 ? 'Province' : 'Circonscription' }}</th>
                           {{-- <th>Circonscription</th>
                           <th>Centre de Vote</th>
                           <th>Code Centre</th>
