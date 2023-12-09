@@ -117,18 +117,21 @@ class CandidatController extends Controller
 
         $sums = [];
 
+        $i = 1;
         if (Auth::user()->candidat->type->id == 1) {
             foreach ($results as $result) {
                 $province = $result->circonscripton->province->titre;
 
                 if (!isset($sums[$province])) {
                     $sums[$province] = [
+                        'i' => $i,
                         'votantInitial' => 0,
                         'votant' => 0,
                         'nosVoix' => 0,
                         'bulletinRestant' => 0,
                         'Pourcentage' => 0,
                     ];
+                    $i++;
                 }
 
                 $sums[$province]['votantInitial'] += $result->votantInitial;
@@ -165,6 +168,7 @@ class CandidatController extends Controller
                 $totalVotant = $sums[$circonscription]['votant'];
                 $totalNosVoix = $sums[$circonscription]['nosVoix'];
                 $sums[$circonscription]['Pourcentage'] = ($totalVotant > 0) ? ($totalNosVoix / $totalVotant) * 100 : 0;
+                $i++;
             }
         }
 
@@ -183,7 +187,7 @@ class CandidatController extends Controller
             'percent' => round($percent, 2),
         ];
 
-        $sums = $this->paginateResults($sums);
+        $sums = $this->paginateResults($sums,10);
 
         return view('admin.details', compact('results', 'sums', 'total'));
     }

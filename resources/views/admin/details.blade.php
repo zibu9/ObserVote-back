@@ -98,11 +98,8 @@
                       </thead>
                       <tbody>
                         @foreach($sums as $key => $values)
-                        @php
-                            $i = 1;
-                        @endphp
                         <tr>
-                          <td>{{ $i }}</td>
+                          <td>{{ $values['i'] }}</td>
                           <td>{{ $key }}</td>
                           <td>{{ $values['votantInitial'] }}</td>
                           <td>{{ $values['votant'] }}</td>
@@ -110,9 +107,6 @@
                           <td>{{ $values['bulletinRestant'] }}</td>
                           <td>{{ round($values['Pourcentage'], 2) }}%</td>
                         </tr>
-                        @php
-                            $i++;
-                        @endphp
                         @endforeach
                         <tr class="bg-info">
                             <td>Total</td>
