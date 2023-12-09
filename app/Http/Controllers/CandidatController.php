@@ -192,7 +192,7 @@ class CandidatController extends Controller
 
         $sums = $this->paginateResults($sums,10);
 
-        return view('admin.details', compact('results', 'sums', 'total'));
+        return view('admin.details', compact('results', 'sums', 'total', 'candidat'));
     }
 
     public function showChangePasswordForm()
