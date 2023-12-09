@@ -120,27 +120,41 @@ class CandidatController extends Controller
             foreach ($results as $result) {
                 $province = $result->circonscripton->province->titre;
 
-                $provinceName = $result->circonscripton->province->titre;
-                $sums[$province] = [
-                    'votantInitial' => $result->votantInitial,
-                    'votant' => $result->votant,
-                    'nosVoix' => $result->nosVoix,
-                    'bulletinRestant' => $result->bulletinRestant,
-                ];
+                if (!isset($sums[$province])) {
+                    $sums[$province] = [
+                        'votantInitial' => 0,
+                        'votant' => 0,
+                        'nosVoix' => 0,
+                        'bulletinRestant' => 0,
+                    ];
+                }
+
+                $sums[$province]['votantInitial'] += $result->votantInitial;
+                $sums[$province]['votant'] += $result->votant;
+                $sums[$province]['nosVoix'] += $result->nosVoix;
+                $sums[$province]['bulletinRestant'] += $result->bulletinRestant;
+
             }
         }
 
-        if(Auth::user()->candidat->type->id == 2)
+        if(Auth::user()->candidat->type->id != 1)
         {
             foreach ($results as $result)
             {
                 $circonscription = $result->circonscripton->name;
-                $sums[$circonscription] = [
-                    'votantInitial' => $result->votantInitial,
-                    'votant' => $result->votant,
-                    'nosVoix' => $result->nosVoix,
-                    'bulletinRestant' => $result->bulletinRestant,
-                ];
+                if (!isset($sums[$circonscription])) {
+                    $sums[$circonscription] = [
+                        'votantInitial' => 0,
+                        'votant' => 0,
+                        'nosVoix' => 0,
+                        'bulletinRestant' => 0,
+                    ];
+                }
+
+                $sums[$circonscription]['votantInitial'] += $result->votantInitial;
+                $sums[$circonscription]['votant'] += $result->votant;
+                $sums[$circonscription]['nosVoix'] += $result->nosVoix;
+                $sums[$circonscription]['bulletinRestant'] += $result->bulletinRestant;
             }
         }
 
