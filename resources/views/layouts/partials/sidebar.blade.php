@@ -30,7 +30,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         @if ((auth()->user()->role->id == 1))
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
                 Candidats
@@ -39,7 +39,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="{{ route('candidat.create') }}" class="nav-link">
+                <a href="{{ route('candidat.create') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                     <i class="fa fa-plus nav-icon"></i>
                     <p>Nouveau
                     <span class="badge badge-success right">New</span>
@@ -47,7 +47,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                <a href="{{ route('candidat.index') }}" class="nav-link">
+                <a href="{{ route('candidat.index') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                     <i class="fas fa-list nav-icon"></i>
                     <p>Liste
                     <span class="badge badge-success right">All</span>
@@ -60,7 +60,7 @@
 
         @if ((auth()->user()->role->id == 2))
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                     <i class="nav-icon fa fa-users"></i>
                     <p>
                     Temoins
@@ -69,7 +69,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                    <a href="{{ route('observer.create') }}" class="nav-link">
+                    <a href="{{ route('observer.create') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                         <i class="fa fa-plus nav-icon"></i>
                         <p>Nouveau
                         <span class="badge badge-success right">New</span>
@@ -77,7 +77,7 @@
                     </a>
                     </li>
                     <li class="nav-item">
-                    <a href="{{ route('observer.index') }}" class="nav-link">
+                    <a href="{{ route('observer.index') }}" class="nav-link{{ request()->routeIs('observer.index') ? ' active' : '' }}">
                         <i class="fas fa-list nav-icon"></i>
                         <p>Liste
                         <span class="badge badge-success right">All</span>
@@ -87,10 +87,18 @@
                 </ul>
             </li>
             <li class="nav-item has-treeview">
-                <a href="{{ route('admin.results') }}" class="nav-link">
+                <a href="{{ route('admin.results') }}" class="nav-link{{ request()->routeIs('admin.results') ? ' active' : '' }}">
                     <i class="nav-icon fas fa-list"></i>
                     <p>
                         Nos Resultats
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="{{ route('admin.details') }}" class="nav-link{{ request()->routeIs('admin.details') ? ' active' : '' }}">
+                    <i class="nav-icon fas fa-chart-bar"></i>
+                    <p>
+                        Details
                     </p>
                 </a>
             </li>
@@ -98,7 +106,7 @@
 
         @if ((auth()->user()->role->id == 3))
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                 <i class="nav-icon fas fa-vote-yea"></i>
                 <p>
                 Résultats
@@ -107,7 +115,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="{{ route('result.create') }}" class="nav-link">
+                <a href="{{ route('result.create') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                     <i class="fa fa-plus nav-icon"></i>
                     <p>Ajouter
                     <span class="badge badge-success right">New</span>
@@ -115,7 +123,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                <a href="{{ route('result.index') }}" class="nav-link">
+                <a href="{{ route('result.index') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                     <i class="fas fa-list nav-icon"></i>
                     <p>Liste
                     <span class="badge badge-success right">All</span>
@@ -128,7 +136,7 @@
 
          {{-- <li class="nav-header">Divers</li>
            <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Circonscriptions
@@ -137,7 +145,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                   <i class="fa fa-plus nav-icon"></i>
                   <p>Nouveau
                     <span class="badge badge-success right">New</span>
@@ -145,7 +153,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="pages/charts/flot.html" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                   <i class="fas fa-list nav-icon"></i>
                   <p>Liste
                     <span class="badge badge-success right">All</span>
@@ -156,7 +164,7 @@
           </li> --}}
 {{--
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
               <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Profession
@@ -165,7 +173,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('professions.create') }}" class="nav-link">
+                <a href="{{ route('professions.create') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                   <i class="fa fa-plus nav-icon"></i>
                   <p>Nouveau
                     <span class="badge badge-success right">New</span>
@@ -173,7 +181,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('professions.index') }}" class="nav-link">
+                <a href="{{ route('professions.index') }}" class="nav-link{{ request()->routeIs('observer.create') ? ' active' : '' }}">
                   <i class="fas fa-list nav-icon"></i>
                   <p>Liste
                     <span class="badge badge-success right">All</span>
