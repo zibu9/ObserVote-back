@@ -2,11 +2,12 @@
 
 namespace App\Exports;
 
+use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use PhpOffice\PhpSpreadsheet\Writer\Xls\Worksheet;
 
-class ResultatsExport implements FromCollection, WithHeadings
+class ResultatsExport implements FromCollection, WithHeadings, WithTitle
 {
     protected $data;
 
