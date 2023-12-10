@@ -2,34 +2,24 @@
 
 namespace App\Exports;
 
-use Maatwebsite\Excel\Concerns\WithTitle;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use PhpOffice\PhpSpreadsheet\Writer\Xls\Worksheet;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class ResultatsExport implements FromCollection, WithHeadings, WithTitle
+class ResultatsExport implements WithMultipleSheets
 {
     protected $data;
+    protected $data2;
 
-    public function __construct(array $data)
+    public function __construct(array $data, array $data2)
     {
         $this->data = $data;
+        $this->data2 = $data2;
     }
 
-    public function collection()
-    {
-        return collect($this->data);
-    }
-
-    public function headings(): array
+    public function sheets(): array
     {
         return [
-            'N°', 'Province', 'Votant Initial', 'Votant', 'Nos Voix', 'Bulletins Restants', 'Pourcentage (%)'
+            'Global Results' => new ResultatsSheet($this->data),
+            'Other Results' => new OtherSheet($this->data2),
         ];
-    }
-
-    public function title(): string
-    {
-        return 'globalResults';
     }
 }

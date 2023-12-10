@@ -232,8 +232,6 @@ class CandidatController extends Controller
 
         $sums = [];
 
-        dd($results);
-
 
         if (Auth::user()->candidat->type->id == 1) {
             $i = 1;
@@ -293,7 +291,7 @@ class CandidatController extends Controller
             }
         }
 
-        return Excel::download(new ResultatsExport($sums), 'results-'. Str::slug($candidat->name). '.xlsx');
+        return Excel::download(new ResultatsExport($sums, $sums), 'results-'. Str::slug($candidat->name). '.xlsx');
     }
 
 }
