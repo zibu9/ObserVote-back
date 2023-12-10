@@ -31,9 +31,4 @@ class ResultatsExport implements FromCollection, WithHeadings
     {
         return 'globalResults';
     }
-
-    public function styles(Worksheet $sheet)
-    {
-        $sheet->getStyle('A1:G1')->getFont()->setBold(true);
-    }
 }
