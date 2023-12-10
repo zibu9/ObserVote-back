@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('nos-resultats', [CandidatController::class, 'results'])->name('admin.results');
         Route::get('resultats-details', [CandidatController::class, 'details'])->name('admin.details');
         Route::get('/change-password', [CandidatController::class, 'showChangePasswordForm'])->name('change-password');
+        Route::get('/export-to-excel', [CandidatController::class, 'exportToExcel'])->name('admin.toExcel');
     });
 
     Route::middleware(['observer'])->group(function () {
