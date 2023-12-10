@@ -197,9 +197,6 @@
     };
 </script>
 
-<!-- Étape 3: Créer un conteneur pour le graphique -->
-
-<!-- Étape 4: Initialiser le graphique -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('myChart').getContext('2d');
@@ -208,7 +205,16 @@
             type: 'bar',
             data: data,
             options: {
-                // Ajoutez des options supplémentaires si nécessaire
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 1,
+                        max: 100,
+                        ticks: {
+                            stepSize: 10
+                        }
+                    }
+                }
             }
         });
     });
