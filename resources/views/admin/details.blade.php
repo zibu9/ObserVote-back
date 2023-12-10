@@ -163,7 +163,7 @@
 <script>
     setTimeout(function(){
         location.reload();
-    }, 60000); // 60 secondes
+    }, 180000); // 180 s
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

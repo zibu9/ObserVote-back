@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Result;
 use App\Models\Candidat;
 use App\Models\Observer;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Exports\ResultatsExport;
 use Illuminate\Support\Facades\Auth;
@@ -170,7 +171,6 @@ class CandidatController extends Controller
                 $sums[$circonscription]['nosVoix'] += $result->nosVoix;
                 $sums[$circonscription]['bulletinRestant'] += $result->bulletinRestant;
 
-                // Calcul du pourcentage pour cette circonscription
                 $totalVotant = $sums[$circonscription]['votant'];
                 $totalNosVoix = $sums[$circonscription]['nosVoix'];
                 $sums[$circonscription]['Pourcentage'] = ($totalVotant > 0) ? ($totalNosVoix / $totalVotant) * 100 : 0;
@@ -281,14 +281,13 @@ class CandidatController extends Controller
                 $sums[$circonscription]['nosVoix'] += $result->nosVoix;
                 $sums[$circonscription]['bulletinRestant'] += $result->bulletinRestant;
 
-                // Calcul du pourcentage pour cette circonscription
                 $totalVotant = $sums[$circonscription]['votant'];
                 $totalNosVoix = $sums[$circonscription]['nosVoix'];
                 $sums[$circonscription]['Pourcentage'] = ($totalVotant > 0) ? ($totalNosVoix / $totalVotant) * 100 : 0;
             }
         }
 
-        return Excel::download(new ResultatsExport($sums), 'resultats.xlsx');
+        return Excel::download(new ResultatsExport($sums), 'results'. Str::slug($candidat->name). '.xlsx');
     }
 
 }
