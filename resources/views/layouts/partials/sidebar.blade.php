@@ -102,6 +102,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item has-treeview">
+                <a href="{{ route('admin.toExcel') }}" class="nav-link{{ request()->routeIs('admin.toExcel') ? ' active' : '' }}">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                        Exportation Excel
+                    </p>
+                </a>
+            </li>
         @endif
 
         @if ((auth()->user()->role->id == 3))
