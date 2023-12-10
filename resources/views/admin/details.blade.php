@@ -57,7 +57,7 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body table-responsive p-0">
-                    <div class="container-fluid">
+                    {{-- <div class="container-fluid">
                         <div class="row p-1">
                             <div class="col-md-4">
                                 <div class="input-group input-group-sm mb-3">
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <table class="table table-head-fixed text-nowrap">
                       <thead>
                         <tr>
@@ -251,8 +251,7 @@
     const chartOptions = {
         scales: {
             y: {
-                beginAtZero: false,
-                min: 1,
+                min: 0,
                 max: 100,
                 ticks: {
                     stepSize: 20
