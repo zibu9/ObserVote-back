@@ -22,9 +22,7 @@ class OtherSheet implements FromCollection, WithHeadings, WithTitle
 
     public function headings(): array
     {
-        return [
-            'N°', 'Province', 'Votant Initial', 'Votant', 'Nos Voix', 'Bulletins Restants', 'Pourcentage (%)'
-        ];
+        return array_keys($this->data[0]);
     }
 
     public function title(): string

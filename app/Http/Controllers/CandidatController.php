@@ -231,7 +231,7 @@ class CandidatController extends Controller
             ->get();
 
         $sums = [];
-
+        $j = 1;
 
         if (Auth::user()->candidat->type->id == 1) {
             $i = 1;
@@ -291,7 +291,25 @@ class CandidatController extends Controller
             }
         }
 
-        return Excel::download(new ResultatsExport($sums, $sums), 'results-'. Str::slug($candidat->name). '.xlsx');
+        foreach ($results as $result) {
+            $formattedResults[] = [
+                'N°' => $j,
+                'Province' => $result->circonscripton->province->titre,
+                'Circonscription' => $result->circonscripton->name,
+                'Centre' => Str::limit($result->centre, 12, '...'),
+                'CentreCode' => $result->centreCode,
+                'Bureau' => $result->bureau,
+                'VotantInitial' => $result->votantInitial,
+                'Votant' => $result->votant,
+                'NosVoix' => $result->nosVoix,
+                'BulletinRestant' => $result->bulletinRestant,
+                'Observer' => Str::limit($result->observer->name, 10, '...'),
+            ];
+
+            $j++;
+        }
+
+        return Excel::download(new ResultatsExport($sums, $formattedResults), 'results-'. Str::slug($candidat->name). '.xlsx');
     }
 
 }
