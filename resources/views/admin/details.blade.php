@@ -18,6 +18,8 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+
+    @json($sums)
     <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
@@ -181,7 +183,7 @@
             'rgba(75, 192, 192, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
+            'rgba(20, 203, 207, 0.2)'
             ],
             borderColor: [
             'rgb(255, 99, 132)',
@@ -190,7 +192,7 @@
             'rgb(75, 192, 192)',
             'rgb(54, 162, 235)',
             'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
+            'rgb(20, 203, 207)'
             ],
             borderWidth: 1
         }]
