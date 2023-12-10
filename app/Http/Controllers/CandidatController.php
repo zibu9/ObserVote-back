@@ -232,6 +232,8 @@ class CandidatController extends Controller
 
         $sums = [];
 
+        dd($results);
+
 
         if (Auth::user()->candidat->type->id == 1) {
             $i = 1;
