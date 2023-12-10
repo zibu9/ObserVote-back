@@ -19,7 +19,6 @@
         </div><!-- /.container-fluid -->
     </div>
 
-    @json($sums)
     <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
@@ -164,63 +163,75 @@
 <script>
     setTimeout(function(){
         location.reload();
-    }, 45000); // 60 secondes
+    }, 60000); // 60 secondes
 </script>
-<!-- Étape 1: Inclure Chart.js -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Étape 2: Préparer vos données -->
 <script>
-    const data = {
-        labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5', 'Label 6', 'label 7'],
+    const resultData = @json($sums);
+
+    const labels = Object.keys(resultData.data);
+    const data = Object.values(resultData.data);
+
+    console.log(data);
+
+    const chartData = {
+        labels: labels,
         datasets: [{
-            label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Election Par Zone',
+            data: data.map(item => item.Pourcentage),
             backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(20, 203, 207, 0.2)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(20, 203, 207, 0.2)',
+                // Ajoutez plus de couleurs si nécessaire
             ],
             borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(20, 203, 207)'
+                'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)',
+                'rgb(20, 203, 207)',
+                // Ajoutez plus de couleurs si nécessaire
             ],
             borderWidth: 1
         }]
     };
-</script>
 
-<script>
+    const chartOptions = {
+        scales: {
+            y: {
+                beginAtZero: false,
+                min: 1,
+                max: 100,
+                ticks: {
+                    stepSize: 20
+                }
+            }
+        }
+        // Ajoutez d'autres options au besoin
+    };
+
     document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('myChart').getContext('2d');
 
         new Chart(ctx, {
             type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        min: 1,
-                        max: 100,
-                        ticks: {
-                            stepSize: 10
-                        }
-                    }
-                }
-            }
+            data: chartData,
+            options: chartOptions
         });
     });
 </script>
+
+
+
 
 
 
