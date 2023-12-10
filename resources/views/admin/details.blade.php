@@ -173,8 +173,9 @@
 
     const labels = Object.keys(resultData.data);
     const data = Object.values(resultData.data);
-
-    console.log(data);
+    const roundedPercentages = Object.values(data).map(entry => {
+            return entry.Pourcentage.toFixed(2);
+    });
 
     const chartData = {
         labels: labels,
@@ -182,25 +183,67 @@
             label: 'Election Par Zone',
             data: data.map(item => item.Pourcentage),
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(20, 203, 207, 0.2)',
-                // Ajoutez plus de couleurs si nécessaire
+                'rgba(255, 99, 132, 0.4)',
+                'rgba(75, 192, 192, 0.4)',
+                'rgba(54, 162, 235, 0.4)',
+                'rgba(255, 10, 24, 0.4)',
+                'rgba(255, 205, 86, 0.4)',
+                'rgba(153, 102, 255, 0.4)',
+                'rgba(20, 203, 207, 0.4)',
+                'rgba(0, 128, 0, 0.4)',
+                'rgba(255, 140, 0, 0.4)',
+                'rgba(255, 69, 0, 0.4)',
+                'rgba(173, 216, 230, 0.4)',
+                'rgba(128, 0, 128, 0.4)',
+                'rgba(255, 20, 147, 0.4)',
+                'rgba(0, 0, 128, 0.4)',
+                'rgba(128, 128, 0, 0.4)',
+                'rgba(0, 250, 154, 0.4)',
+                'rgba(0, 128, 128, 0.4)',
+                'rgba(139, 69, 19, 0.4)',
+                'rgba(255, 250, 205, 0.4)',
+                'rgba(250, 128, 114, 0.4)',
+                'rgba(255, 228, 181, 0.4)',
+                'rgba(240, 230, 140, 0.4)',
+                'rgba(255, 127, 80, 0.4)',
+                'rgba(46, 139, 87, 0.4)',
+                'rgba(218, 165, 32, 0.4)',
+                'rgba(160, 82, 45, 0.4)',
+                'rgba(135, 206, 250, 0.4)',
+                'rgba(0, 255, 127, 0.4)',
             ],
             borderColor: [
                 'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
                 'rgb(75, 192, 192)',
                 'rgb(54, 162, 235)',
+                'rgb(255, 10, 24)',
+                'rgb(255, 205, 86)',
                 'rgb(153, 102, 255)',
                 'rgb(20, 203, 207)',
+                'rgb(0, 128, 0)',
+                'rgb(255, 140, 0)',
+                'rgb(255, 69, 0)',
+                'rgb(173, 216, 230)',
+                'rgb(128, 0, 128)',
+                'rgb(255, 20, 147)',
+                'rgb(0, 0, 128)',
+                'rgb(128, 128, 0)',
+                'rgb(0, 250, 154)',
+                'rgb(0, 128, 128)',
+                'rgb(139, 69, 19)',
+                'rgb(255, 250, 205)',
+                'rgb(250, 128, 114)',
+                'rgb(255, 228, 181)',
+                'rgb(240, 230, 140)',
+                'rgb(255, 127, 80)',
+                'rgb(46, 139, 87)',
+                'rgb(218, 165, 32)',
+                'rgb(160, 82, 45)',
+                'rgb(135, 206, 250)',
+                'rgb(0, 255, 127)',
                 // Ajoutez plus de couleurs si nécessaire
             ],
+
             borderWidth: 1
         }]
     };
