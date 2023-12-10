@@ -2,8 +2,9 @@
 
 namespace App\Exports;
 
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use PhpOffice\PhpSpreadsheet\Writer\Xls\Worksheet;
 
 class ResultatsExport implements FromCollection, WithHeadings
 {
@@ -22,7 +23,17 @@ class ResultatsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'Province', 'Votant Initial', 'Votant', 'Nos Voix', 'Bulletins Restants', 'Pourcentage (%)'
+            'N°', 'Province', 'Votant Initial', 'Votant', 'Nos Voix', 'Bulletins Restants', 'Pourcentage (%)'
         ];
+    }
+
+    public function title(): string
+    {
+        return 'globalResults';
+    }
+
+    public function styles(Worksheet $sheet)
+    {
+        $sheet->getStyle('A1:G1')->getFont()->setBold(true);
     }
 }

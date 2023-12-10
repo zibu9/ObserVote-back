@@ -129,6 +129,7 @@ class CandidatController extends Controller
                 if (!isset($sums[$province])) {
                     $sums[$province] = [
                         'i' => $i,
+                        'province' => $province,
                         'votantInitial' => 0,
                         'votant' => 0,
                         'nosVoix' => 0,
@@ -157,6 +158,7 @@ class CandidatController extends Controller
                 if (!isset($sums[$circonscription])) {
                     $sums[$circonscription] = [
                         'i' => $i,
+                        'province' => $circonscription,
                         'votantInitial' => 0,
                         'votant' => 0,
                         'nosVoix' => 0,
@@ -239,6 +241,7 @@ class CandidatController extends Controller
                 if (!isset($sums[$province])) {
                     $sums[$province] = [
                         'i' => $i,
+                        'province' => $province,
                         'votantInitial' => 0,
                         'votant' => 0,
                         'nosVoix' => 0,
@@ -267,6 +270,7 @@ class CandidatController extends Controller
                 if (!isset($sums[$circonscription])) {
                     $sums[$circonscription] = [
                         'i' => $i,
+                        'province' => $circonscription,
                         'votantInitial' => 0,
                         'votant' => 0,
                         'nosVoix' => 0,
@@ -278,8 +282,8 @@ class CandidatController extends Controller
 
                 $sums[$circonscription]['votantInitial'] += $result->votantInitial;
                 $sums[$circonscription]['votant'] += $result->votant;
-                $sums[$circonscription]['nosVoix'] += $result->nosVoix;
-                $sums[$circonscription]['bulletinRestant'] += $result->bulletinRestant;
+                $sums[$circonscription]['nosVoix'] += (int)$result->nosVoix;
+                $sums[$circonscription]['bulletinRestant'] += (int)$result->bulletinRestant;
 
                 $totalVotant = $sums[$circonscription]['votant'];
                 $totalNosVoix = $sums[$circonscription]['nosVoix'];
@@ -287,7 +291,7 @@ class CandidatController extends Controller
             }
         }
 
-        return Excel::download(new ResultatsExport($sums), 'results'. Str::slug($candidat->name). '.xlsx');
+        return Excel::download(new ResultatsExport($sums), 'results-'. Str::slug($candidat->name). '.xlsx');
     }
 
 }
