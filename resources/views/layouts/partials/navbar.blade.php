@@ -15,7 +15,7 @@
       @if ((auth()->user()->role->id < 3))
         <li class="nav-item">
             <a class="nav-link" href="{{ route('change-password') }}">
-                <i class="fas fa-user-edit"></i> modifier mot de passe
+                <i class="fas fa-user-edit"></i>Change Password
             </a>
         </li>
       @endif
