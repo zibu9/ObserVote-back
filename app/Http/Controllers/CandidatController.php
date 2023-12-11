@@ -310,7 +310,7 @@ class CandidatController extends Controller
             $j++;
         }
 
-        return Excel::download(new ResultatsExport($sums, $formattedResults), 'results-'. Str::slug($candidat->name). '.xlsx');
+        return Excel::download(new ResultatsExport($sums, $formattedResults), 'results-'. Str::slug($candidat->candidat). '.xlsx');
     }
 
     public function changePassword(Request $request)
