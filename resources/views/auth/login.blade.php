@@ -6,7 +6,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c elevation-3"
+        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c"
         style="opacity: .8">
     </div>
     <!-- /.login-logo -->

@@ -5,7 +5,7 @@
 @section('main')
 <div class="register-box">
     <div class="login-logo">
-        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c elevation-3"
+        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c"
         style="opacity: .8">
     </div>
     <div class="card">
