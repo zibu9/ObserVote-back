@@ -296,14 +296,14 @@ class CandidatController extends Controller
                 'N°' => $j,
                 'Province' => $result->circonscripton->province->titre,
                 'Circonscription' => $result->circonscripton->name,
-                'Centre' => Str::limit($result->centre, 12, '...'),
+                'Centre' => $result->centre,
                 'CentreCode' => $result->centreCode,
                 'Bureau' => $result->bureau,
                 'VotantInitial' => $result->votantInitial,
                 'Votant' => $result->votant,
                 'NosVoix' => $result->nosVoix,
                 'BulletinRestant' => $result->bulletinRestant,
-                'Observer' => Str::limit($result->observer->name, 10, '...'),
+                'Observer' => $result->observer->name,
             ];
 
             $j++;
