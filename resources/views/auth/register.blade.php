@@ -5,9 +5,9 @@
 @section('main')
 <div class="register-box">
     <div class="login-logo">
-        <a href=""><b>Obser</b>V<b>ote</b></a>
+        <img src="{{ asset('dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-c elevation-3"
+        style="opacity: .8">
     </div>
-
     <div class="card">
       <div class="card-body register-card-body">
         <p class="login-box-msg">Register a new membership</p>
