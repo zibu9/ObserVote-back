@@ -26,6 +26,8 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
   <!-- Google Font: Source Sans Pro -->
+  <link rel="icon" type="image/x-icon" href="{{ asset('dist/img/Shortr50.png') }}">
+  <link rel="shortcut icon" href="{{ asset('dist/img/Shortr50.png') }}" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   @yield('css')
   @livewireStyles
