@@ -14,7 +14,7 @@
     <ul class="navbar-nav ml-auto">
       @if ((auth()->user()->role->id < 3))
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('change-password') }}">
+            <a class="nav-link" href="{{ route('admin.change') }}">
                 <i class="fas fa-user-edit"></i>Change Password
             </a>
         </li>

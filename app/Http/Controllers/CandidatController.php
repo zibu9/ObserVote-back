@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Result;
 use App\Models\Candidat;
 use App\Models\Observer;
@@ -201,7 +202,7 @@ class CandidatController extends Controller
 
     public function showChangePasswordForm()
     {
-        return view('admin.change-password');
+        return view('admin.change-pass');
     }
 
     private function paginateResults($results, $perPage = 1)
@@ -310,6 +311,36 @@ class CandidatController extends Controller
         }
 
         return Excel::download(new ResultatsExport($sums, $formattedResults), 'results-'. Str::slug($candidat->name). '.xlsx');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $candidat = Candidat::find(Auth::user()->candidat->id);
+        $request->validate([
+            'password' => 'required|min:8',
+            'new_password' => 'required|min:8',
+            'new_password2' => 'required|min:8|same:new_password',
+        ]);
+
+        $pass = Hash::make($request->new_password);
+
+        if (strcmp($request->get('password'), $request->new_password) == 0)
+        {
+            return redirect()->back()->with("error", "Les Mot de passe doit etre different de l'actuel.");
+        }
+
+        if (Hash::check($request->password, Auth::user()->password)) {
+            $user->update(['password' =>  $pass]);
+            if(Auth::user()->role->id == 2)
+            {
+                $candidat->update(['password' => $pass]);
+            }
+
+            return redirect()->back()->with('success', 'Mot de passe modifié avec succès!');
+        } else {
+            return back()->with('error', 'Mot de passe actuel incorrect.');
+        }
     }
 
 }
