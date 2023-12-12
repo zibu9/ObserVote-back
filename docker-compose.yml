@@ -7,10 +7,26 @@ services:
       - "8000:80"
     depends_on:
       - db
-  db:
-    image: mysql:8.2
-    environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE: observote
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
+
+    db:
+        image: mysql:latest
+        environment:
+        MYSQL_ROOT_PASSWORD:
+        MYSQL_DATABASE: observote
+        MYSQL_USER: root
+        MYSQL_PASSWORD:
+        ports:
+        - "3306:3306"
+        volumes:
+        - ./mysql-data:/var/lib/mysql
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+        PMA_HOST: db
+        PMA_USER: root
+        PMA_PASSWORD:
+        ports:
+        - "8080:80"
+        depends_on:
+        - db
