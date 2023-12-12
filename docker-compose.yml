@@ -17,7 +17,6 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: observote
-      MYSQL_USER: root
     ports:
       - "3306:3306"
     volumes:
