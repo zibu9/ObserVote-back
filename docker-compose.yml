@@ -2,19 +2,23 @@ version: '3'
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:80"
     depends_on:
       - db
+    volumes:
+      - ./mysql-data:/var/lib/mysql
 
   db:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: observote
       MYSQL_USER: root
-      MYSQL_PASSWORD:
+      MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
@@ -25,7 +29,7 @@ services:
     environment:
       PMA_HOST: db
       PMA_USER: root
-      PMA_PASSWORD:
+      PMA_PASSWORD: root
     ports:
       - "8080:80"
     depends_on:
