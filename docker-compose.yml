@@ -15,10 +15,10 @@ services:
   db:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: observote
       MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_PASSWORD:
     ports:
       - "3306:3306"
     volumes:
@@ -29,7 +29,7 @@ services:
     environment:
       PMA_HOST: db
       PMA_USER: root
-      PMA_PASSWORD: root
+      PMA_PASSWORD:
     ports:
       - "8080:80"
     depends_on:
