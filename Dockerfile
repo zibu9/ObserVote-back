@@ -4,7 +4,8 @@ FROM php:8.2.4-apache
 # Installation des dépendances nécessaires pour Laravel et Composer
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        libzip-dev zip unzip git
+        libzip-dev zip unzip git libfreetype6-dev libjpeg62-turbo-dev libpng-dev && \
+    docker-php-ext-install pdo_mysql gd zip
 
 # Installer Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
