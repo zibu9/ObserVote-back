@@ -19,6 +19,11 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip
 
+# Installer nano
+RUN apt-get update && \
+    apt-get install -y nano && \
+    rm -rf /var/lib/apt/lists/*
+
 # Installez les extensions PHP nécessaires
 RUN docker-php-ext-install zip pdo_mysql
 
