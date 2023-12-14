@@ -54,7 +54,6 @@ class AddCandidat extends Component
     {
         $this->validate([
             'name' => 'required|string',
-            'parti' => 'required|string',
             'candidat' => 'required|string',
             'sexe' => 'required|string',
             'email' => 'required|email|unique:candidats,email',
@@ -66,8 +65,8 @@ class AddCandidat extends Component
 
         $candidat = Candidat::create([
             'name' => $this->name,
-            'regroupement' => $this->regroupement,
-            'parti' => $this->parti,
+            'regroupement' => ($this->regroupement) ? $this->regroupement : '',
+            'parti' => ($this->parti) ? $this->parti : '',
             'candidat' => $this->candidat,
             'sexe' => $this->sexe,
             'province' => $this->province,
