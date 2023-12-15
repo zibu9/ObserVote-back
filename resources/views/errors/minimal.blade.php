@@ -25,8 +25,11 @@
                     </div>
 
                     <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
-                        @yield('message')
+                        @yield('message')<br>
                     </div>
+                    <br>
+                    <a href="{{ url('/') }}" class="ml-4 text-sm text-gray-700 underline">Retour au tableau de bord</a>
+                    <!-- Ajout du lien de retour au tableau de bord -->
                 </div>
             </div>
         </div>
