@@ -41,6 +41,7 @@
                     <!-- form start -->
                     <form role="form" action="{{ route('candidat.update', $candidat->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                       <div class="card-body">
                         <div class="form-group">
                             <label>Type</label>
