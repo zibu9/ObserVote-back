@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::middleware(['superadmin'])->group(function () {
         Route::get('editer-candidat/{id}', [SuperAdminController::class, 'edit'])->name('candidat.edit');
         Route::post('/candidat', [SuperadminController::class, 'storeCandidat'])->name('candidat.store');
-        Route::put('/observer/{id}', [SuperAdminController::class, 'updateCandidat'])->name('candidat.update');
+        Route::put('update-candidat{id}', [SuperAdminController::class, 'updateCandidat'])->name('candidat.update');
         Route::get('candidat/create', [SuperAdminController::class, 'createCandidat'])->name('candidat.create');
         Route::get('listes-des-candidats', [SuperAdminController::class, 'index'])->name('candidat.index');
         Route::get('candidat/{id}', [SuperAdminController::class, 'show'])->name('candidat.show');
